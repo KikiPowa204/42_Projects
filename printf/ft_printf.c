@@ -6,11 +6,11 @@
 /*   By: knajmech <knajmech@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 11:20:09 by knajmech          #+#    #+#             */
-/*   Updated: 2025/10/24 10:39:04 by knajmech         ###   ########.fr       */
+/*   Updated: 2025/10/24 14:55:50 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libftprint.a"
+#include <stdio.h>
+#include "libftprintf.h"
 
 static int  skip_space(const char *input)
 {
@@ -27,23 +27,24 @@ static int  skip_space(const char *input)
 	return (0);
 }
 
-void *redirect(char spec, va_list arg)
+char *redirect(char spec, va_list arg)
 {
 	char	*x;
 	int		i;
 
-	else if (spec == 'd' || spec == 'i')
-		x = ft_itoa(va_arg(arg, int));
-	else if (spec == 'c')
-		x = va_arg(arg, char);
+	x = 0;
+	if (spec == 'd' || spec == 'i')
+		return (ft_itoa(va_arg(arg, int)));
+	if (spec == 'c')
+		*x = va_arg(arg, int);
 	else if (spec == 's')
-		x = va_arg(arg, char*);
+		x = ft_strdup(va_arg(arg, char*));
 	else if (spec == 'u')
-		x = ft_itoa(va_arg(arg, unsigned int));
-	else if (spec == 'x' || 'X')
+		return (ft_itoa(va_arg(arg, unsigned int)));
+	else if (spec == 'x' || spec == 'X' || spec == 'p')
 	{
 		i = 0;
-		x = ft_putnbr_base(ft_itoa(va_arg(arg, unsigned int)));
+		x = ft_putnbr_base(va_arg(arg, size_t));
 		while(x[i])
 		{
 			if (spec == 'x')
@@ -52,7 +53,9 @@ void *redirect(char spec, va_list arg)
 		}
 	}
 	else if (spec == '%')
-		return (va_arg(arg, char));
+	{
+		*x = va_arg(arg, int);
+	}
 	return (x);
 }
 
@@ -62,6 +65,7 @@ int	ft_printf(const char *str, ...)
 	char	*param;
 	int		rv;
 	int		num;
+	int		skipped_spaces;
 
 	rv = 0;
 	num = 0;
@@ -77,7 +81,7 @@ int	ft_printf(const char *str, ...)
 			ft_putstr_fd(param, 1);
 			free(param);
 			param = NULL;
-			rv += skipped_spaces;
+			rv += skipped_spaces + 1;
 		}
 		else
 		{
@@ -92,5 +96,10 @@ int	ft_printf(const char *str, ...)
 
 int main(void)
 {
-	ft_printf("%s", "string");
+	char *str =  "string";
+
+	printf("%     d\n", 235);
+	ft_printf("this prints a string:%s and this prints its length %d\n", str, ft_strlen(str));
+	ft_printf("this prints the address %p, and this prints its return value %d %i\n", str, ft_printf(str));
+	ft_printf("this prints the hexadecimal value of 2345 - %x %X", 2345, 2345); 
 }

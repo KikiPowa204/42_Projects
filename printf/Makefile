@@ -6,7 +6,7 @@
 #    By: knajmech <knajmech@student.42vienna.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/22 10:12:48 by knajmech          #+#    #+#              #
-#    Updated: 2025/10/24 10:38:39 by knajmech         ###   ########.fr        #
+#    Updated: 2025/10/24 12:51:14 by knajmech         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,23 +15,26 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 OBJ = $(SRCS:.c=.o)
 SRCS = ft_printf.c \
-LIBFT_P = ./libft
-LIBFT = $(LIBFT_P)/libft.a
+	   ft_putnbr_base.c
+LIBFT_P = libft
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): libft $(OBJ)
 	@make -C $(LIBFT_P)
-	ar rcs $@ $? $(LIBFT)
+	@cp $(LIBFT_P)/libft.a $(NAME)
+	ar rcs $(NAME) $(LIBFT_P)/libft.a $(OBJ)
 
 %.o:%.c
-	$(CC) $(CFLAGS) -c $^ -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
-	rm $(OBJ)
+	rm -f $(OBJ)
+	@make -C $(LIBFT_P) clean
 
 fclean : clean
 	rm -f $(NAME)
+	@make -C $(LIBFT_P) fclean
 
 re :
 	fclean all
