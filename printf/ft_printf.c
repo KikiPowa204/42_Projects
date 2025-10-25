@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 11:20:09 by knajmech          #+#    #+#             */
-/*   Updated: 2025/10/24 14:55:50 by knajmech         ###   ########.fr       */
+/*   Updated: 2025/10/25 11:33:08 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -45,6 +45,8 @@ char *redirect(char spec, va_list arg)
 	{
 		i = 0;
 		x = ft_putnbr_base(va_arg(arg, size_t));
+		if (spec == 'p')
+			write(1, "0x", 2);
 		while(x[i])
 		{
 			if (spec == 'x')
@@ -53,9 +55,7 @@ char *redirect(char spec, va_list arg)
 		}
 	}
 	else if (spec == '%')
-	{
 		*x = va_arg(arg, int);
-	}
 	return (x);
 }
 
@@ -94,12 +94,16 @@ int	ft_printf(const char *str, ...)
 	return (num);
 }
 
-int main(void)
+/*int main(void)
 {
 	char *str =  "string";
-
-	printf("%     d\n", 235);
-	ft_printf("this prints a string:%s and this prints its length %d\n", str, ft_strlen(str));
-	ft_printf("this prints the address %p, and this prints its return value %d %i\n", str, ft_printf(str));
-	ft_printf("this prints the hexadecimal value of 2345 - %x %X", 2345, 2345); 
-}
+	//char *str1 = "other";
+	int len = ft_strlen(str);
+	ft_printf("this prints a string:%s and this 
+	prints its length %d\n", str, len);
+	ft_printf("this prints the address %p, and this 
+	prints its return value %d %i\n", str, ft_strlen(str));
+	printf("%p\n", str);
+	ft_printf("this prints the hexadecimal value of 2345: %x / %X\n", 2345, 2345);
+	printf("%x", 2345);
+}*/

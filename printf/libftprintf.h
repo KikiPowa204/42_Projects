@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 10:17:43 by knajmech          #+#    #+#             */
-/*   Updated: 2025/10/24 12:07:24 by knajmech         ###   ########.fr       */
+/*   Updated: 2025/10/25 10:02:54 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFTPRINTF_H
@@ -18,6 +18,6 @@
 # include "libft/libft.h"
 
 int		ft_printf(const char *, ...);
-char	*ft_putnbr_base(int nbr);
+char	*ft_putnbr_base(size_t nbr);
 
 #endif
