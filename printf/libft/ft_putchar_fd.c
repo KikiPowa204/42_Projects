@@ -6,12 +6,16 @@
 /*   By: knajmech <knajmech@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 07:32:47 by knajmech          #+#    #+#             */
-/*   Updated: 2025/10/07 08:26:36 by knajmech         ###   ########.fr       */
+/*   Updated: 2025/10/27 12:08:51 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
+	if (!c)
+		return (0);
+	else
+		return (1);
 }

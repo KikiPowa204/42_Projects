@@ -15,6 +15,11 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
+	if (s == NULL)
+	{
+		write(fd, "(null)", 6);
+		return ;
+	}
 	i = 0;
 	while (s[i])
 	{
