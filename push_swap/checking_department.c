@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 08:39:33 by knajmech          #+#    #+#             */
-/*   Updated: 2025/12/31 08:42:33 by knajmech         ###   ########.fr       */
+/*   Updated: 2025/12/31 08:48:03 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,16 @@
 
 int checker(t_stack *stack, t_manager *heads)
 {
-    t_stack *head;
+    int prev_index;
 
-    head = heads->head_a;
-    while (stack->next != heads->head_a)
+    prev_index = stack->index;
+    stack = stack->next;
+    while (stack != heads->head_a)
     {
-        
+        if (stack->index < prev_index)
+            return (0);
+        prev_index = stack->index;
+        stack = stack->next;
     }
+    return (1);
 }

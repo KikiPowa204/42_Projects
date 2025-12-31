@@ -6,14 +6,14 @@
 #    By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/19 08:06:37 by knajmech          #+#    #+#              #
-#    Updated: 2025/12/31 08:38:54 by knajmech         ###   ########.fr        #
+#    Updated: 2025/12/31 08:52:41 by knajmech         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g
-SRC = stack_manager.c error_handling.c push_swap.c sorting_department.c
+SRC = stack_manager.c error_handling.c push_swap.c sorting_department.c checking_department.c
 OBJ = $(SRC:.c=.o)
 
 LIBFT = printf/libft/libft.a

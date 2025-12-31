@@ -1,37 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting_department.c                               :+:      :+:    :+:   */
+/*   rotation_nation.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/29 10:13:39 by knajmech          #+#    #+#             */
-/*   Updated: 2025/12/31 09:13:27 by knajmech         ###   ########.fr       */
+/*   Created: 2025/12/31 08:59:26 by knajmech          #+#    #+#             */
+/*   Updated: 2025/12/31 09:02:04 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int *make_array (t_stack *stack_a)
+void    you_spin_me_round(t_stack *stack_a, t_stack *stack_b)
 {
-    int size;
-    int *nums;
-
-    size = ft_lstsize(stack_a);
-    nums = malloc(size * sizeof(int));
-    if (!nums)
-        return (0);
-}
-
-void    sort_five(t_manager *heads)
-{
-    t_stack *stack_a;
-    t_stack *tmp;
-    int     start;
-    int     smallest;
-    int     *nums;
-
-    nums = make_array(heads->head_a);
-    if (!nums)
-        return (ft_lstclear(heads->head_a), 0);
+    rotate
 }

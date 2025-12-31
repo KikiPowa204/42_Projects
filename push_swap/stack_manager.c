@@ -6,11 +6,18 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 09:17:31 by knajmech          #+#    #+#             */
-/*   Updated: 2025/12/31 08:36:39 by knajmech         ###   ########.fr       */
+/*   Updated: 2025/12/31 09:15:51 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void    spin_rev(t_stack *stack)
+{
+    t_stack     *prev_node;
+
+    prev_node;
+}
 
 int index_list(t_stack *stack_a, t_manager *heads, int start)
 {
@@ -65,6 +72,7 @@ int stack_manager(t_manager *heads, char **argv, int amount)
     if (!(make_list(heads, argv, amount)))
         return (-1);
     heads->size_a = ft_lstsize(heads->head_a);
+    spin_rev(heads->head_a);
     check = index_list(heads->head_a, heads, 0);
     if (!check)
         return (0);
