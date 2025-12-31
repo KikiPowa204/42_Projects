@@ -3,40 +3,43 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: knajmech <knajmech@student.42vienna.c      +#+  +:+       +#+         #
+#    By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/19 08:06:37 by knajmech          #+#    #+#              #
-#    Updated: 2025/12/19 08:34:21 by knajmech         ###   ########.fr        #
+#    Updated: 2025/12/31 08:38:54 by knajmech         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a
+NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g
+SRC = stack_manager.c error_handling.c push_swap.c sorting_department.c
 OBJ = $(SRC:.c=.o)
-SRC = *c
-PATH_l = libft
-PATH_p = printf
+
+LIBFT = printf/libft/libft.a
+PRINTF = printf/libftprintf.a
 
 all: $(NAME)
-$(NAME): $(PATH_l) $(PATH_p) $(OBJ)
-	@make -C $(PATH_p)
-	@cp $(PATH_l)/libft.a $(NAME)
-	@make -C $(PATH_l)
-	@cp $(PATH_p)/libftprintf.a $(NAME)
-	ar rcs $(NAME) $(LIBFT_p)/libft.a $(LIBFT_l)/libftprintf.a $(OBJ)
+
+$(NAME): $(OBJ)
+	@make -C printf/libft bonus
+	@make -C printf
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) -o $(NAME)
 
 %.o:%.c push_swap.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
-clean :
+clean:
 	rm -f $(OBJ)
-	@make -C $(PATH_l) clean
-	@make -C $(PATH_p) clean
+	@make -C printf/libft clean
+	@make -C printf clean
 
-fclean : clean
+fclean:
+	rm -f $(OBJ)
 	rm -f $(NAME)
-	@rm -f $(PATH_l)/libft.a
-	@rm -f $(PATH_p)/libftprintf.a
+	@make -C printf/libft fclean
+	@make -C printf fclean
 
-re : fclean all
+re: fclean all
+
+.PHONY: all clean fclean re

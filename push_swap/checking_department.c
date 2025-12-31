@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_handling.c                                   :+:      :+:    :+:   */
+/*   checking_department.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/19 08:42:58 by knajmech          #+#    #+#             */
-/*   Updated: 2025/12/28 12:14:14 by knajmech         ###   ########.fr       */
+/*   Created: 2025/12/31 08:39:33 by knajmech          #+#    #+#             */
+/*   Updated: 2025/12/31 08:42:33 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int check_valid(char **list, int amount)
+int checker(t_stack *stack, t_manager *heads)
 {
-    int index;
-    int num;
-    int valid;
+    t_stack *head;
 
-    valid = 1;
-    index = 1;
-    while (index <= amount)
+    head = heads->head_a;
+    while (stack->next != heads->head_a)
     {
-		//ft_printf("%s, %s", list[i], list[1]);
-        num = ft_atoi(list[index], &valid);
-        if (valid == -1)
-            return (-1);
-        index++;
+        
     }
-    return (1);
 }
