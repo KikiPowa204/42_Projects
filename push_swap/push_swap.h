@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:37:36 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/09 10:45:29 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/09 11:02:17 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,3 +60,5 @@ void	rrotate_both(t_manager *heads);
 void	rotate_both(t_manager *heads);
 void	pick_path(t_manager *heads, int num);
 void	crack_safe(t_manager *heads, int num);
+void	unload(t_manager *heads);
+void	post_station(t_manager *heads, char instruction);
