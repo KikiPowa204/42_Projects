@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 08:48:48 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/06 10:09:12 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/08 14:20:36 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,18 @@ int *swap_array(int *nums)
 
 int    *rr_array(int *nums, int size)
 {
-    int first;
-    int i;
+	int first;
+	int i;
 
-    first = nums[0];
-    //nums = ft_memmove(nums, nums + 1, (size + 1) * sizeof(int));
-    i = 0;
-    while (i < size)
-    {
-        nums[i] = nums[i + 1];
-        i++;
-    }
-    nums[size] = first;
-    return (nums);
+	first = nums[0];
+	i = 0;
+	while (i < size)
+	{
+		nums[i] = nums[i + 1];
+		i++;
+	}
+	nums[size] = first;
+	return (nums);
 }
 
 int    *r_array(int *nums, int size)
