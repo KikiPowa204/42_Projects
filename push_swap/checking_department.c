@@ -6,39 +6,39 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 08:39:33 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/06 08:35:43 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/09 09:56:33 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char    **create_map(char **map)
+char **create_map(char **map)
 {
-    int     i;
+	int	i;
 
-    i = 0;
-    map = malloc(sizeof(char *) * 13);
-    map[12] = 0;
-    while (i < 12)
-    {
-        map[i] = malloc(sizeof(char) * 9);
-        if (!map[i])
-            return (free(map), NULL);
-        i++;
-    }
-    ft_strlcpy(map[0], "nothing", 8); 
-    ft_strlcpy(map[1], "sa", 3);
-    ft_strlcpy(map[2], "sb", 3);
-    ft_strlcpy(map[3], "ss", 3);
-    ft_strlcpy(map[4], "ra", 3);
-    ft_strlcpy(map[5], "rb", 3);
-    ft_strlcpy(map[6], "rr", 3);
-    ft_strlcpy(map[7], "rra", 4);
-    ft_strlcpy(map[8], "rrb", 4);
-    ft_strlcpy(map[9], "rrr", 4);
-    ft_strlcpy(map[10], "pa", 3);
-    ft_strlcpy(map[11], "pb", 3);
-    return (map);
+	i = 0;
+	map = malloc(sizeof(char *) * 13);
+	map[12] = 0;
+	while (i < 12)
+	{
+		map[i] = malloc(sizeof(char) * 9);
+		if (!map[i])
+			return (free(map), NULL);
+		i++;
+	}
+	ft_strlcpy(map[0], "nothing", 8); 
+	ft_strlcpy(map[1], "sa", 3);
+	ft_strlcpy(map[2], "sb", 3);
+	ft_strlcpy(map[3], "ss", 3);
+	ft_strlcpy(map[4], "ra", 3);
+	ft_strlcpy(map[5], "rb", 3);
+	ft_strlcpy(map[6], "rr", 3);
+	ft_strlcpy(map[7], "rra", 4);
+	ft_strlcpy(map[8], "rrb", 4);
+	ft_strlcpy(map[9], "rrr", 4);
+	ft_strlcpy(map[10], "pa", 3);
+	ft_strlcpy(map[11], "pb", 3);
+	return (map);
 }
 
 char    *read_map(int path)

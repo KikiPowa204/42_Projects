@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 08:39:31 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/09 08:45:15 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/09 10:13:18 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,14 @@ void parent_trap(t_manager *heads) //ss
 {
 	freaky_friday(&(heads)->head_a);
 	freaky_friday(&(heads)->head_b);
+}
+
+void pick_path(t_manager *heads, int num)
+{
+	if (num == 1)
+		freaky_friday(&(heads)->head_a);
+	if (num == 2)
+		freaky_friday(&(heads)->head_b);
+	if (num == 3)
+		parent_trap(heads);
 }

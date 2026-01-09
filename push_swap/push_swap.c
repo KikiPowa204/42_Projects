@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:35:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/08 15:34:24 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/09 10:22:20 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ int new_argc(char *argv)
 #include "unistd.h"
 int main(int argc, char **argv)
 {
-	int			how_many;
-	int			i;
-	char		**list;
-	t_stack		*stack_a;
-	t_manager	heads;
+	int					how_many;
+	int					i;
+	char				**list;
+	t_stack				*stack_a;
+	static t_manager	heads;
 
 	list = 0;
 	if (argc == 2 && !ft_strchr(argv[1], ' '))
@@ -61,5 +61,6 @@ int main(int argc, char **argv)
 		return (ft_printf("ERROR"), 0);
 	i = 0;
 	stack_a = heads.head_a;
+	ft_printf("%d", heads.size_b);
 	return 0;
 }

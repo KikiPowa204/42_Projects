@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:37:36 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/09 08:45:40 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/09 10:45:29 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_manager
     int     operation;
 }               t_manager;
 
-int		sort_five(t_manager *heads);
+int		sort_seven(t_manager *heads);
 int		check_valid(char **argv, int amount);
 int		stack_manager(t_manager *heads, char **argv, int amount);
 int		*r_array(int *nums, int size);
@@ -52,5 +52,11 @@ int		checker(t_stack *stack, t_manager *heads);
 void	you_spin_me_round(t_stack **heads);
 void	like_a_record_baby(t_stack **heads);
 void	freaky_friday(t_stack **head);
-void	order_stack_a(t_manager *heads, int *path);
+void	order_stacks(t_manager *heads, int *path);
 void	parent_trap(t_manager *heads);
+void	push_a(t_manager *heads);
+void	push_b(t_manager *heads);
+void	rrotate_both(t_manager *heads);
+void	rotate_both(t_manager *heads);
+void	pick_path(t_manager *heads, int num);
+void	crack_safe(t_manager *heads, int num);

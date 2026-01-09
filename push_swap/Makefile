@@ -6,14 +6,25 @@
 #    By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/19 08:06:37 by knajmech          #+#    #+#              #
-#    Updated: 2026/01/08 15:33:58 by knajmech         ###   ########.fr        #
+#    Updated: 2026/01/09 09:46:53 by knajmech         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
-SRC = stack_manager.c error_handling.c push_swap.c snorting_department.c checking_department.c array_hq.c create_order.c rotation_nation.c swap_cops.c
+SRC = 	stack_manager.c\
+		error_handling.c\
+		push_swap.c\
+		snorting_department.c\
+		first_seven.c\
+		checking_department.c\
+		array_hq.c\
+		create_order.c\
+		rotation_nation.c\
+		swap_cops.c\
+		push_town.c
+
 OBJ = $(SRC:.c=.o)
 
 LIBFT = printf/libft/libft.a
