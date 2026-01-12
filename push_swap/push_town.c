@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 08:45:54 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/09 11:54:58 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/12 10:42:58 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,34 +37,29 @@ void push_a(t_manager *heads)
 }
 void push_b(t_manager *heads)
 {
-    t_stack *node = heads->head_a;
+	t_stack *node;
+	t_stack *head_b;
 
-    if (!node)
-		return ;
-    if (heads->size_a == 1)
-        heads->head_a = NULL;
-    else
-    {
-        node->prev->next = node->next;
-        node->next->prev = node->prev;
-        heads->head_a = node->next;
-    }
-    if (heads->size_b == 0)
-    {
-        node->next = node;
-        node->prev = node;
-    }
-    else
-    {
-        t_stack *head_b = heads->head_b;
-        node->next = head_b;
-        node->prev = head_b->prev;
-        head_b->prev->next = node;
-        head_b->prev = node;
-    }
-    heads->head_b = node;
-    heads->size_a--;
-    heads->size_b++;
+	node = heads->head_a;
+	node->prev->next = node->next;
+	node->next->prev = node->prev;
+	heads->head_a = node->next;
+	if (heads->size_b == 0)
+	{
+		node->next = node;
+		node->prev = node;
+	}
+	else
+	{
+		head_b = heads->head_b;
+		node->next = head_b;
+		node->prev = head_b->prev;
+		head_b->prev->next = node;
+		head_b->prev = node;
+	}
+	heads->head_b = node;
+	heads->size_a--;
+	heads->size_b++;
 }
 
 void post_station(t_manager *heads, char instruction)

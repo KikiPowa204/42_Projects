@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:35:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/12 10:24:26 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/12 10:36:35 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int main(int argc, char **argv)
 		return (ft_printf("ERROR"), 0);
 	i = 0;
 	stack_a = heads.head_a;
-	while (i < 7)
+	while (i < 9)
 	{
 		ft_printf("%d \n", stack_a->num);
 		i++;
