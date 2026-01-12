@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 09:17:31 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/09 11:00:11 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/09 12:46:26 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,10 @@ int make_list(t_manager *heads, char **argv)
 	return (1);
 }
 
-int stack_manager(t_manager *heads, char **argv, int amount)
+int stack_manager(t_manager *heads, char **argv)
 {
 	int check;
 
-	amount = 0;
 	if (!(make_list(heads, argv)))
 		return (-1);
 	heads->size_a = ft_lstsize(heads->head_a);

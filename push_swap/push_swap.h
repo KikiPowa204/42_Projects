@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:37:36 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/09 11:02:17 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/09 12:43:16 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_manager
 
 int		sort_seven(t_manager *heads);
 int		check_valid(char **argv, int amount);
-int		stack_manager(t_manager *heads, char **argv, int amount);
+int		stack_manager(t_manager *heads, char **argv);
 int		*r_array(int *nums, int size);
 int		*rr_array(int *nums, int size);
 int		*swap_array(int *nums);

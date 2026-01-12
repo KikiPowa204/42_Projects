@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:35:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/09 10:22:20 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/12 10:24:26 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,17 @@ int main(int argc, char **argv)
 	}
 	g_valid = check_valid(list, how_many);
 	if (g_valid == 1)
-		g_valid = stack_manager(&heads, list, how_many);
+		g_valid = stack_manager(&heads, list);
 	if (g_valid <= 0)
 		return (ft_printf("ERROR"), 0);
 	i = 0;
 	stack_a = heads.head_a;
+	while (i < 7)
+	{
+		ft_printf("%d \n", stack_a->num);
+		i++;
+		stack_a = stack_a->next;
+	}
 	ft_printf("%d", heads.size_b);
 	return 0;
 }
