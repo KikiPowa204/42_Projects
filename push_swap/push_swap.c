@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:35:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/12 10:36:35 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/15 08:38:21 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int main(int argc, char **argv)
 	int					i;
 	char				**list;
 	t_stack				*stack_a;
+	t_stack				*stack_b;
 	static t_manager	heads;
 
 	list = 0;
@@ -61,12 +62,18 @@ int main(int argc, char **argv)
 		return (ft_printf("ERROR"), 0);
 	i = 0;
 	stack_a = heads.head_a;
-	while (i < 9)
+	stack_b = heads.head_b;
+	int start = 0;
+	while (stack_a != heads.head_a || !(start)++)
 	{
-		ft_printf("%d \n", stack_a->num);
+		ft_printf("stack a: %d\n", stack_a->num);
+		//ft_printf("stack b: %d \n", stack_b->num);
 		i++;
 		stack_a = stack_a->next;
+//		stack_b = stack_b->next;
 	}
-	ft_printf("%d", heads.size_b);
+	ft_printf("%d - %d", ft_lstsize(heads.head_a), ft_lstsize(heads.head_b));
+	ft_lstclear(&(heads).head_a);
+	//ft_printf("%d", heads.size_b);
 	return 0;
 }

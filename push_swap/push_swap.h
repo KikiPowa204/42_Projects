@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:37:36 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/09 12:43:16 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/15 08:25:32 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,15 @@ static int g_winning_path[20];
 
 typedef struct s_manager
 {
-    t_stack *head_a;
-    t_stack *head_b;
-    int     size_a;
-    int     size_b;
-    int     target_a;
-    int     target_b;
-    int     *cost;
-    int     operation;
-}               t_manager;
+	t_stack	*head_a;
+	t_stack	*head_b;
+	t_stack	*target_in_a;
+	t_stack	*target_in_b;
+	int		size_a;
+	int		size_b;
+	int		cost;
+	int		operation;
+}			t_manager;
 
 int		sort_seven(t_manager *heads);
 int		check_valid(char **argv, int amount);
@@ -62,3 +62,6 @@ void	pick_path(t_manager *heads, int num);
 void	crack_safe(t_manager *heads, int num);
 void	unload(t_manager *heads);
 void	post_station(t_manager *heads, char instruction);
+void	calculator(t_manager *heads);
+void	switcheroo(t_manager *heads);
+void	check_rotation(t_manager *heads, int cost_to_top);

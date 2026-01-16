@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 08:39:33 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/09 09:56:33 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/15 08:16:20 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,16 @@ char    *read_map(int path)
 
 int checker(t_stack *stack, t_manager *heads)
 {
-    int prev_index;
+	int prev_index;
 
-    prev_index = stack->index;
-    stack = stack->next;
-    while (stack != heads->head_a)
-    {
-        if (stack->index < prev_index)
-            return (0);
-        prev_index = stack->index;
-        stack = stack->next;
-    }
-    return (1);
+	prev_index = stack->index;
+	stack = stack->next;
+	while (stack != heads->head_a)
+	{
+		if (stack->index < prev_index)
+			return (0);
+		prev_index = stack->index;
+		stack = stack->next;
+	}
+	return (1);
 }

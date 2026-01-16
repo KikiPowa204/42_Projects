@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 10:13:39 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/09 11:24:11 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/13 10:54:19 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int check_array(int *nums)
 	return (1);
 }
 
-void    best_timeline(int *nums, int depth, int *min_moves, int *instructions)
+void best_timeline(int *nums, int depth, int *min_moves, int *instructions)
 {
 	if (depth >= *min_moves)
 		return ;
