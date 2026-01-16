@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 09:47:34 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/16 08:30:01 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/16 08:50:09 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void check_rotation(t_manager *heads, int cost_to_top)
 	}
 }
 
-void to_r_or_rr(t_stack *head, t_stack *target)
+void to_r_or_rr(t_stack *head, t_stack *target, char stack)
 {
 	while (target != head)
 	{
@@ -51,6 +51,10 @@ void to_r_or_rr(t_stack *head, t_stack *target)
 			you_spin_me_round(&head);
 			ft_printf("rr");
 		}
+		if (stack == 'a')
+			ft_printf("a\n");
+		else if (stack == 'b')
+			ft_printf("b\n");
 	}
 }
 
@@ -58,15 +62,11 @@ void switcheroo(t_manager *heads)
 {
 	if (heads->target_in_a != heads->head_a)
 	{
-		to_r_or_rr(heads->head_a, heads->target_in_a);
-		if (heads->target_in_a->cost_to_top != 0)
-			ft_printf("a\n");
+		to_r_or_rr(heads->head_a, heads->target_in_a, 'a');
 	}
 	if (heads->target_in_b != heads->head_b)
 	{
-		to_r_or_rr(heads->head_b, heads->target_in_b);
-		if (heads->target_in_b->cost_to_top != 0)
-			ft_printf("b\n");
+		to_r_or_rr(heads->head_b, heads->target_in_b, 'b');
 	}
 	ft_printf("pa\n");
 	push_a(heads);
