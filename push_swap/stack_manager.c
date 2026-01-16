@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 09:17:31 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/16 08:29:24 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/16 22:12:02 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,33 @@ int make_list(t_manager *heads, char **argv)
 	return (1);
 }
 
+void find_ft(t_manager *heads, t_stack *starting, t_stack *stack_b)
+{
+	int		start;
+
+	start = 0;
+	while (start < heads->size_a)
+	{
+		if (starting->index > stack_b->index)
+		{
+			if (it_is_cheap(heads, starting, stack_b))
+			{
+				heads->target_in_b = stack_b;
+				heads->target_in_a = starting;
+			}
+			return ;
+		}
+		starting = starting->next;
+		start++;
+	}
+	if (start == heads->size_a 
+		&& it_is_cheap(heads, heads->first_pos, stack_b))
+	{
+		heads->target_in_a = starting;
+		heads->target_in_b = stack_b;
+	}
+}
+
 int stack_manager(t_manager *heads, char **argv)
 {
 	int 	check;
@@ -83,8 +110,16 @@ int stack_manager(t_manager *heads, char **argv)
 	if (!check)
 		return (0);
 	unload(heads);
-	sort_seven(heads);
+	if (!sort_seven(heads))
+		return (0);
+	heads->first_pos = heads->head_a;
 	while (heads->size_b > 0)
+	{
+		heads->cost = INT_MAX;
+		cost_to_top(heads->head_b, heads->size_b, 0);
+		cost_to_top(heads->head_a, heads->size_a, 0);
+		find_ft(heads, heads->first_pos, heads->head_b);
 		calculator(heads);
+	}
 	return (1);
 }

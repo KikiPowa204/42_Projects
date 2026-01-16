@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:35:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/15 08:38:21 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/16 22:21:07 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,17 @@ int new_argc(char *argv)
 	}
 	return (spaces);
 }
+void final_rotation(t_manager *heads)
+{
+	t_stack	*first;
+
+	first = heads->first_pos;
+	while (heads->head_a != first)
+	{
+		to_r_or_rr(heads, heads->head_a, first, 'a');
+	}
+}
+
 #include "unistd.h"
 int main(int argc, char **argv)
 {
@@ -61,12 +72,13 @@ int main(int argc, char **argv)
 	if (g_valid <= 0)
 		return (ft_printf("ERROR"), 0);
 	i = 0;
+	final_rotation(&heads);
 	stack_a = heads.head_a;
 	stack_b = heads.head_b;
 	int start = 0;
 	while (stack_a != heads.head_a || !(start)++)
 	{
-		ft_printf("stack a: %d\n", stack_a->num);
+		//ft_printf("stack a: %d\n", stack_a->num);
 		//ft_printf("stack b: %d \n", stack_b->num);
 		i++;
 		stack_a = stack_a->next;

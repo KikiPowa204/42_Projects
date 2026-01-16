@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:55:17 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/16 08:29:42 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/16 21:18:01 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int it_is_cheap(t_manager *heads, t_stack *stack_1, t_stack *stack_2)
 {
 	int	diff;
 	int	ctt_a;
-	int ctt_b;
+	int	ctt_b;
 
 	if (stack_1->cost_to_top < 0)
 		ctt_a = stack_1->cost_to_top * -1;
@@ -83,7 +83,7 @@ int it_is_cheap(t_manager *heads, t_stack *stack_1, t_stack *stack_2)
 	diff = stack_1->cost_to_top - stack_2->cost_to_top;
 	if (diff == 0 && heads->cost > ctt_a)
 		return (heads->cost = stack_1->cost_to_top, 2);
-	else if (heads->cost > (ctt_a + ctt_b))
+	if (heads->cost > (ctt_a + ctt_b))
 		return (heads->cost = ctt_a + ctt_b, 1);
 	return (0);
 }
@@ -111,27 +111,29 @@ int it_is_cheap(t_manager *heads, t_stack *stack_1, t_stack *stack_2)
 // 	return (abs(cost_a) + abs(cost_b));
 // }
 
-void find_target(t_manager *heads, t_stack *stack_1, t_stack *stack_2)
-{
-	int	start;
+// void find_target(t_manager *heads, t_stack *stack_a, t_stack *stack_b)
+// {
+// 	int	start;
 
-	start = 0;
-	while (stack_1 != heads->head_a || !start)
-	{
-		// if (heads->cost > start)
-		// 	return ;
-		if (stack_1->index > heads->target_in_b->index && stack_1->index < heads->target_in_a->index)
-		{
-			if (it_is_cheap(heads, stack_1, stack_2))
-			{
-				heads->target_in_a = stack_1;
-				heads->target_in_b = stack_2;
-			}
-		}
-		stack_1 = stack_1->next;
-		start++;
-	}
-}
+// 	start = 0;
+// 	while (stack_a != heads->head_a || !start)
+// 	{
+// 		// if (heads->cost > start)
+// 		// 	return ;
+// 		if (stack_a->index > stack_b->index)
+// 		{
+// 			if (it_is_cheap(heads, stack_a, stack_b))
+// 			{
+				
+// 				heads->target_in_a = stack_a;
+// 				heads->target_in_b = stack_b;
+// 			}
+// 			return ;
+// 		}
+// 		stack_a = stack_a->next;
+// 		start++;
+// 	}
+// }
 
 // void find_target(t_manager *heads, t_stack *node_b)
 // {
@@ -160,26 +162,24 @@ void calculator(t_manager *heads)
 {
 	t_stack	*stack_b;
 
-	heads->cost = INT_MAX;
-	heads->target_in_b = heads->head_b;
-	heads->target_in_a = heads->head_a;
-	cost_to_top(heads->head_b, heads->size_b, 0);
-	cost_to_top(heads->head_a, heads->size_a, 0);
-	stack_b = heads->head_b;
-	while (stack_b->next != heads->head_b)
+	stack_b = heads->head_b->next;
+	while (stack_b != heads->head_b)
 	{
-		find_target(heads, heads->head_a, stack_b);
+		find_ft(heads, heads->first_pos, stack_b);
 		stack_b = stack_b->next;
 	}
-	if (!(heads->target_in_a->cost_to_top - heads->target_in_b->cost_to_top))
+	if (heads->size_b)
 	{
-		check_rotation(heads, heads->target_in_a->cost_to_top);
-		push_a(heads);
-		ft_printf("pa\n");
-		return ;
+		if (!(heads->target_in_a->cost_to_top - heads->target_in_b->cost_to_top))
+		{
+			check_rotation(heads, heads->target_in_a->cost_to_top);
+			push_a(heads);
+			ft_printf("pa\n");
+			return ;
+		}
+		else
+			switcheroo(heads);
 	}
-	switcheroo(heads);
-	//(heads->size_b)--;
 	//ft_printf("%d", heads->target_in_b->num);
 	return ;
 }

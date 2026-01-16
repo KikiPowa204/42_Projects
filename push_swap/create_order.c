@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:24:38 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/12 10:31:24 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/16 22:10:27 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void order_stacks(t_manager *heads, int *path)
 		if (path[i] >= 4 && path[i] <= 6)
 			crack_safe(heads, path[i]);
 		if (path[i] == 7)
-			you_spin_me_round(&(heads)->head_a);
+			you_spin_me_round(&(heads)->head_a, heads, 'a');
 		if (path[i] == 8)
-			you_spin_me_round(&(heads)->head_b);
+			you_spin_me_round(&(heads)->head_b, heads, 'b');
 		if (path[i] == 9)
 			rrotate_both(heads);
 		if (path[i] == 10)

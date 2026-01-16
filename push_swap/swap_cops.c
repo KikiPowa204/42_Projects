@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 08:39:31 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/12 10:01:25 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/16 12:51:18 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ void freaky_friday(t_stack **head)
 
 	node_1 = *head;
 	node_2 = node_1->next;
-	
 	last_node = node_1->prev;
-	
 	last_node->next = node_2;
 	node_2->next->prev = node_1;
 	node_2->prev = last_node;
