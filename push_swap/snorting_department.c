@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 09:47:34 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/16 22:09:41 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/16 22:52:17 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void check_rotation(t_manager *heads, int cost_to_top)
 	i = 0;
 	if (cost_to_top < 0)
 	{
+		cost_to_top *= -1;
 		while (i < cost_to_top)
 		{
 			rrotate_both(heads);
@@ -26,7 +27,7 @@ void check_rotation(t_manager *heads, int cost_to_top)
 			i++;
 		}
 	}
-	else
+	else if (cost_to_top > 0)
 	{
 		while (i < cost_to_top)
 		{
