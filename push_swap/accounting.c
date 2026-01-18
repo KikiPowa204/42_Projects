@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:55:17 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/16 21:18:01 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/18 10:00:39 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void cost_to_top(t_stack *node, int size, int i)
 		}
 		i = -1;
 		node = head->prev;
-		while (i > (size/2) * -1)
+		while (i >= (size/2) * -1)
 		{
 			node->cost_to_top = i; 
 			node =  node->prev;
@@ -38,33 +38,33 @@ void cost_to_top(t_stack *node, int size, int i)
 	}
 }
 
-// void form_categories(t_stack *b_nodes, t_stack *a_nodes, t_manager *heads)
-// {
-// 	int		i;
-// 	int		start;
-// 	t_stack	*largest_node;
+void form_categories(t_stack *b_nodes, t_stack *a_nodes, t_manager *heads)
+{
+	int		i;
+	int		start;
+	t_stack	*largest_node;
 
-// 	largest_node = a_nodes->prev;
-// 	i = 1;
-// 	while (i <= 7)
-// 	{
-// 		start = 0;
-// 		while (b_nodes != heads->head_b || !(start)++)
-// 		{
-// 			if (b_nodes->num > largest_node->num)
-// 			{
-// 				b_nodes->category = 6;
-// 			}
-// 			else if (b_nodes->num > a_nodes->num && b_nodes->num < a_nodes->next->num)
-// 			{
-// 				b_nodes->category = i;
-// 			}
-// 			b_nodes = b_nodes->next;
-// 		}
-// 		a_nodes = a_nodes->next;
-// 		i++;
-// 	}
-// }
+	largest_node = a_nodes->prev;
+	i = 1;
+	while (i <=  7)
+	{
+		start = 0;
+		while (b_nodes != heads->head_b || !(start)++)
+		{
+			if (b_nodes->num > largest_node->num)
+			{
+				b_nodes->category = 6;
+			}
+			else if (b_nodes->num > a_nodes->num && b_nodes->num < a_nodes->next->num)
+			{
+				b_nodes->category = i;
+			}
+			b_nodes = b_nodes->next;
+		}
+		a_nodes = a_nodes->next;
+		i++;
+	}
+}
 
 int it_is_cheap(t_manager *heads, t_stack *stack_1, t_stack *stack_2)
 {
@@ -174,12 +174,11 @@ void calculator(t_manager *heads)
 		{
 			check_rotation(heads, heads->target_in_a->cost_to_top);
 			push_a(heads);
-			ft_printf("pa\n");
 			return ;
 		}
 		else
 			switcheroo(heads);
 	}
-	//ft_printf("%d", heads->target_in_b->num);
+	
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:37:36 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/16 22:07:20 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/18 10:09:19 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,3 +84,4 @@ void	switcheroo(t_manager *heads);
 void	check_rotation(t_manager *heads, int cost_to_top);
 int		it_is_cheap(t_manager *heads, t_stack *stack_1, t_stack *stack_2);
 void	to_r_or_rr(t_manager *heads, t_stack *head, t_stack *target, char stack);
+void	form_categories(t_stack *b_nodes, t_stack *a_nodes, t_manager *heads);

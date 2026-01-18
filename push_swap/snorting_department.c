@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 09:47:34 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/16 22:52:17 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/18 10:02:50 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void switcheroo(t_manager *heads)
 	{
 		to_r_or_rr(heads, heads->head_b, heads->target_in_b, 'b');
 	}
-	ft_printf("pa\n");
+	//ft_printf("pa\n");
 	push_a(heads);
 }
 

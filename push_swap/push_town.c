@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 08:45:54 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/16 08:42:34 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/18 10:00:49 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void push_a(t_manager *heads)
 	heads->size_b--;
 	if (heads->size_b == 0)
 		heads->head_b = NULL;
+	ft_printf("pa\n");
 }
 void push_b(t_manager *heads)
 {

@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:35:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/16 22:21:07 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/18 09:40:17 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void final_rotation(t_manager *heads)
 	first = heads->first_pos;
 	while (heads->head_a != first)
 	{
+		cost_to_top(heads->head_a, heads->size_a, 0);
 		to_r_or_rr(heads, heads->head_a, first, 'a');
 	}
 }

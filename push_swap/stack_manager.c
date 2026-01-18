@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 09:17:31 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/16 22:12:02 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/18 10:16:58 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,21 @@ int index_list(t_stack *stack_a, t_manager *heads, int start)
 {
     t_stack *tmp;
 
-    while (stack_a->next != heads->head_a || !(start)++)
-    {
-        stack_a->index = heads->size_a;
-        tmp = stack_a->next;
-        while (tmp != stack_a)
-        {
-            if (stack_a->num == tmp->num)
-                return (ft_lstclear(&heads->head_a), 0);
-            else if (stack_a->num < tmp->num)
-                stack_a->index--;
-            tmp = tmp->next;
-        }
-        stack_a = stack_a->next;
-    }
-    return (1);
+	while (stack_a != heads->head_a || !(start)++)
+	{
+		stack_a->index = heads->size_a;
+		tmp = stack_a->next;
+		while (tmp != stack_a)
+		{
+			if (stack_a->num == tmp->num)
+				return (ft_lstclear(&heads->head_a), 0);
+			else if (stack_a->num < tmp->num)
+				stack_a->index--;
+			tmp = tmp->next;
+		}
+		stack_a = stack_a->next;
+	}
+	return (1);
 }
 
 int make_list(t_manager *heads, char **argv)
@@ -113,6 +113,7 @@ int stack_manager(t_manager *heads, char **argv)
 	if (!sort_seven(heads))
 		return (0);
 	heads->first_pos = heads->head_a;
+	form_categories(heads->head_b, heads->head_a, heads);
 	while (heads->size_b > 0)
 	{
 		heads->cost = INT_MAX;
