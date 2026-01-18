@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 09:17:31 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/18 10:16:58 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/18 13:00:11 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,7 @@ void find_ft(t_manager *heads, t_stack *starting, t_stack *stack_b)
 		starting = starting->next;
 		start++;
 	}
-	if (start == heads->size_a 
-		&& it_is_cheap(heads, heads->first_pos, stack_b))
+	if (start == heads->size_a && it_is_cheap(heads, heads->first_pos, stack_b))
 	{
 		heads->target_in_a = starting;
 		heads->target_in_b = stack_b;
@@ -100,27 +99,29 @@ void find_ft(t_manager *heads, t_stack *starting, t_stack *stack_b)
 
 int stack_manager(t_manager *heads, char **argv)
 {
-	int 	check;
-
 	if (!(make_list(heads, argv)))
 		return (-1);
 	heads->size_a = ft_lstsize(heads->head_a);
 	spin_rev(heads->head_a, heads->head_a);
-	check = index_list(heads->head_a, heads, 0);
-	if (!check)
+	g_valid = index_list(heads->head_a, heads, 0);
+	if (!g_valid)
 		return (0);
 	unload(heads);
 	if (!sort_seven(heads))
 		return (0);
 	heads->first_pos = heads->head_a;
-	form_categories(heads->head_b, heads->head_a, heads);
+	//form_categories(heads->head_b, heads->head_a, heads);
 	while (heads->size_b > 0)
 	{
 		heads->cost = INT_MAX;
+		// if (heads->size_b > 100 && !(heads->curr_category))
+		// 	prioritise_category(heads->head_b, heads, 0);
 		cost_to_top(heads->head_b, heads->size_b, 0);
 		cost_to_top(heads->head_a, heads->size_a, 0);
+		// if (heads->curr_category)
+		// 	focus_category(heads->category_add, heads);
 		find_ft(heads, heads->first_pos, heads->head_b);
-		calculator(heads);
+		calculator(heads, heads->head_b->next);
 	}
 	return (1);
 }

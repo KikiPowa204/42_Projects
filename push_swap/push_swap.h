@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:37:36 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/18 10:09:19 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/18 12:24:30 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ typedef struct s_manager
 	t_stack	*first_pos;
 	t_stack	*target_in_a;
 	t_stack	*target_in_b;
+	t_stack	*category_add;
+	int		count;
+	int		max;
+	int		curr_category;
 	int		size_a;
 	int		size_b;
 	int		cost;
@@ -79,9 +83,11 @@ void	pick_path(t_manager *heads, int num);
 void	crack_safe(t_manager *heads, int num);
 void	unload(t_manager *heads);
 void	post_station(t_manager *heads, char instruction);
-void	calculator(t_manager *heads);
+void	calculator(t_manager *heads, t_stack *stack_b);
 void	switcheroo(t_manager *heads);
 void	check_rotation(t_manager *heads, int cost_to_top);
 int		it_is_cheap(t_manager *heads, t_stack *stack_1, t_stack *stack_2);
 void	to_r_or_rr(t_manager *heads, t_stack *head, t_stack *target, char stack);
 void	form_categories(t_stack *b_nodes, t_stack *a_nodes, t_manager *heads);
+void	prioritise_category(t_stack *stack_b, t_manager *heads, int section);
+void	focus_category(t_stack *stack_b, t_manager *heads);

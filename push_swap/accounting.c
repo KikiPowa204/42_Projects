@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:55:17 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/18 10:00:39 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/18 11:53:41 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void form_categories(t_stack *b_nodes, t_stack *a_nodes, t_manager *heads)
 	int		start;
 	t_stack	*largest_node;
 
+	heads->curr_category = 0;
 	largest_node = a_nodes->prev;
 	i = 1;
 	while (i <=  7)
@@ -111,30 +112,6 @@ int it_is_cheap(t_manager *heads, t_stack *stack_1, t_stack *stack_2)
 // 	return (abs(cost_a) + abs(cost_b));
 // }
 
-// void find_target(t_manager *heads, t_stack *stack_a, t_stack *stack_b)
-// {
-// 	int	start;
-
-// 	start = 0;
-// 	while (stack_a != heads->head_a || !start)
-// 	{
-// 		// if (heads->cost > start)
-// 		// 	return ;
-// 		if (stack_a->index > stack_b->index)
-// 		{
-// 			if (it_is_cheap(heads, stack_a, stack_b))
-// 			{
-				
-// 				heads->target_in_a = stack_a;
-// 				heads->target_in_b = stack_b;
-// 			}
-// 			return ;
-// 		}
-// 		stack_a = stack_a->next;
-// 		start++;
-// 	}
-// }
-
 // void find_target(t_manager *heads, t_stack *node_b)
 // {
 // 	t_stack *a;
@@ -158,11 +135,34 @@ int it_is_cheap(t_manager *heads, t_stack *stack_1, t_stack *stack_2)
 // 		i++;
 // 	}
 // }
-void calculator(t_manager *heads)
-{
-	t_stack	*stack_b;
 
-	stack_b = heads->head_b->next;
+void prioritise_category(t_stack *stack_b, t_manager *heads, int section)
+{
+	while (stack_b != heads->head_b || !section)
+	{
+		heads->count = 0;
+		section = stack_b->category;
+		if (stack_b->category == section)
+		{
+			while (stack_b->category == section && heads->count < heads->max)
+			{
+				heads->count++;
+				stack_b = stack_b->next;
+			}
+			if (heads->count > heads->max)
+			{
+				heads->max = heads->count;
+				heads->curr_category = stack_b->category;
+				heads->category_add = stack_b;
+			}
+		}
+		else
+			stack_b = stack_b->next;
+	}
+}
+
+void calculator(t_manager *heads, t_stack *stack_b)
+{
 	while (stack_b != heads->head_b)
 	{
 		find_ft(heads, heads->first_pos, stack_b);
@@ -179,6 +179,7 @@ void calculator(t_manager *heads)
 		else
 			switcheroo(heads);
 	}
-	
+	if (stack_b->category != heads->curr_category)
+		heads->curr_category = 0;
 	return ;
 }

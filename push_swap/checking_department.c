@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 08:39:33 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/15 08:16:20 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/18 12:48:28 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ char **create_map(char **map)
 
 char    *read_map(int path)
 {
-    char **map;
+	char **map;
 
-    map = 0;
-    map = create_map(map);
-    return (map[path]);
+	map = 0;
+	map = create_map(map);
+	return (map[path]);
 }
 
 int checker(t_stack *stack, t_manager *heads)

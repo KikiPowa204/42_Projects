@@ -6,11 +6,31 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:24:38 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/16 22:10:27 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/18 12:24:34 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void focus_category(t_stack *stack_b, t_manager *heads)
+{
+	int	size;
+	int	i;
+
+	if (heads->max == 15)
+		return ;
+	i = 0;
+	size = (heads->max) / 2;
+	while (i++ < size)
+		stack_b = stack_b->prev;
+	if(stack_b->index > stack_b->next->index)
+		to_r_or_rr(heads, heads->head_b, stack_b, 'b');
+	else if (stack_b->prev->index > stack_b->next->next->index)
+		to_r_or_rr(heads, heads->head_b, stack_b->prev, 'b');
+	cost_to_top(heads->head_b, heads->size_b, 0);
+	cost_to_top(heads->head_a, heads->size_a, 0);
+	//heads->category = stack_b;
+}
 
 void order_stacks(t_manager *heads, int *path)
 {

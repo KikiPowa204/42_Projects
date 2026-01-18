@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:35:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/18 09:40:17 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/18 12:52:17 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int main(int argc, char **argv)
 	while (stack_a != heads.head_a || !(start)++)
 	{
 		//ft_printf("stack a: %d\n", stack_a->num);
-		//ft_printf("stack b: %d \n", stack_b->num);
+//		ft_printf("stack b: %d \n", stack_b->num);
 		i++;
 		stack_a = stack_a->next;
 //		stack_b = stack_b->next;

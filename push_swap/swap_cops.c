@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 08:39:31 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/16 12:51:18 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/18 13:08:07 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void freaky_friday(t_stack **head)
 	*head = node_2;
 }
 
-void parent_trap(t_manager *heads) //ss
+void parent_trap(t_manager *heads) //ss 
 {
 	freaky_friday(&(heads)->head_a);
 	freaky_friday(&(heads)->head_b);
