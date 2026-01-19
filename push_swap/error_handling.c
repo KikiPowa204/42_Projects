@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:42:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/06 14:18:01 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 10:13:33 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@ int check_valid(char **list, int amount)
 {
     int index;
     int num;
+	int	valid;
 
     index = 0;
+	valid = 1;
     while (index < amount)
     {
-		//ft_printf("%s, %s", list[i], list[1]);
-        num = ft_atoi(list[index]);
-        if (g_valid == -1)
+		num = ft_atoi(list[index]);
+        if (valid == -1)
             return (-1);
         index++;
     }

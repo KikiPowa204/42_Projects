@@ -6,30 +6,29 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 09:17:31 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/19 07:28:46 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 10:07:09 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    spin_rev(t_stack *stack, t_stack *head)
+void spin_rev(t_stack *stack, t_stack *head)
 {
-    t_stack     *prev_node;
-
-    prev_node = stack;
-    stack = stack->next;
-    while (stack != head)
-    {
-        stack->prev = prev_node;
-        prev_node = stack;
-        stack = stack->next;
-    }
-    stack->prev = prev_node;
+	t_stack	*prev_node;
+	prev_node = stack;
+	stack = stack->next;
+	while (stack != head)
+	{
+		stack->prev = prev_node;
+		prev_node = stack;
+		stack = stack->next;
+	}
+	stack->prev = prev_node;
 }
 
 int index_list(t_stack *stack_a, t_manager *heads, int start)
 {
-    t_stack *tmp;
+	t_stack *tmp;
 
 	while (stack_a != heads->head_a || !(start)++)
 	{
@@ -56,12 +55,12 @@ int make_list(t_manager *heads, char **argv)
 	i = 1;
 	stack_a = ft_lstnew(ft_atoi(argv[0]));
 	heads->head_a = stack_a;
-	if (!stack_a || g_valid < 1)
+	if (!stack_a)
 		return (0);
 	while ((argv[i]) != 0)
 	{
 		stack_a->next = ft_lstnew(ft_atoi(argv[i]));
-		if (!stack_a->next || g_valid < 0)
+		if (!stack_a->next)
 			return (ft_lstclear(&heads->head_a), 0);
 		i++;
 		stack_a = stack_a->next;
@@ -113,7 +112,6 @@ int stack_manager(t_manager *heads, char **argv)
 	if (!sort_seven(heads))
 		return (0);
 	heads->first_pos = heads->head_a;
-	//form_categories(heads->head_b, heads->head_a, heads);
 	while (heads->size_b > 0)
 	{
 		heads->cost = INT_MAX;

@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:35:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/19 08:39:31 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 10:08:49 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,23 @@ void final_rotation(t_manager *heads)
 		to_r_or_rr(heads, heads->head_a, first, 'a');
 	}
 }
+int handle_data(t_manager *heads, char **list, int how_many)
+{
+	int valid;
+
+	valid = check_valid(list, how_many);
+	if (valid == 1)
+		valid = stack_manager(heads, list);
+	if (valid <= 0)
+		return (ft_printf("ERROR"), 0);
+	return 1;
+}
 
 #include "unistd.h"
 int main(int argc, char **argv)
 {
 	int					how_many;
-	int					i;
 	char				**list;
-	t_stack				*stack_a;
-	t_stack				*stack_b;
 	static t_manager	heads;
 
 	list = 0;
@@ -67,26 +75,8 @@ int main(int argc, char **argv)
 		how_many = argc - 2;
 		list = argv + 1;
 	}
-	g_valid = check_valid(list, how_many);
-	if (g_valid == 1)
-		g_valid = stack_manager(&heads, list);
-	if (g_valid <= 0)
-		return (ft_printf("ERROR"), 0);
-	i = 0;
+	if (!(handle_data(&heads, list, how_many)))
+		return (0);	
 	final_rotation(&heads);
-	stack_a = heads.head_a;
-	stack_b = heads.head_b;
-	int start = 0;
-	while (stack_a != heads.head_a || !(start)++)
-	{
-		//ft_printf("stack a: %d\n", stack_a->index);
-		//ft_printf("stack b: %d \n", stack_b->num);
-		i++;
-		stack_a = stack_a->next;
-//		stack_b = stack_b->next;
-	}
-	//ft_printf("%d - %d", ft_lstsize(heads.head_a), ft_lstsize(heads.head_b));
 	ft_lstclear(&(heads).head_a);
-	//ft_printf("%d", heads.size_b);
-	return 0;
 }

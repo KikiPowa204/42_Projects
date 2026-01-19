@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 08:45:54 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/18 10:00:49 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 09:41:34 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,28 +60,13 @@ void push_b(t_manager *heads)
 	heads->head_b = node;
 	heads->size_a--;
 	heads->size_b++;
+	ft_printf("pb\n");
 }
 
 void post_station(t_manager *heads, char instruction)
 {
-	// t_stack	*holder;
-	// t_stack	*prev;
-
 	if (instruction == 'b')
 		push_b(heads);
-	// else if (instruction == 'b')
-	// {
-	// 	heads->head_b = heads->head_a;
-	// 	holder = heads->head_a;
-	// 	prev = holder->prev;
-	// 	prev->next = holder->next;
-	// 	heads->head_a = holder->next;
-	// 	heads->head_a->prev = prev;
-	// 	holder->next = holder;
-	// 	holder->prev = holder;
-	// 	heads->size_a--;
-	// 	heads->size_b++;
-	// }
 	else if (instruction == 'a')
 		push_a(heads);
 }

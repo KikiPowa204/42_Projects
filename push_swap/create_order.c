@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:24:38 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/16 22:10:27 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 09:45:45 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,16 @@ void order_stacks(t_manager *heads, int *path)
 		if (path[i] == 11)
 			push_b(heads);
 		i++;
+	}
+}
+
+void unload(t_manager *heads)
+{
+	while (heads->size_a > 7)
+	{
+		if (heads->head_a->index == 1)
+			like_a_record_baby(&(heads)->head_a, heads, 'a');
+		else
+			post_station(heads, 'b');
 	}
 }

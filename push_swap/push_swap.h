@@ -6,14 +6,14 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:37:36 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/19 08:19:09 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 09:54:04 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf/ft_printf.h"
 #include "printf/libft/libft.h"
 
-static int g_winning_path[100];
+static int g_winning_path[20];
 
 // static int  g_sa = 1;
 // static int  g_sb = 2;

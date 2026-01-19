@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:55:17 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/19 08:08:38 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 09:41:50 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,33 +38,33 @@ void cost_to_top(t_stack *node, int size, int i)
 	}
 }
 
-void form_categories(t_stack *b_nodes, t_stack *a_nodes, t_manager *heads)
-{
-	int		i;
-	int		start;
-	t_stack	*largest_node;
+// void form_categories(t_stack *b_nodes, t_stack *a_nodes, t_manager *heads)
+// {
+// 	int		i;
+// 	int		start;
+// 	t_stack	*largest_node;
 
-	largest_node = a_nodes->prev;
-	i = 1;
-	while (i <=  7)
-	{
-		start = 0;
-		while (b_nodes != heads->head_b || !(start)++)
-		{
-			if (b_nodes->num > largest_node->num)
-			{
-				b_nodes->category = 6;
-			}
-			else if (b_nodes->num > a_nodes->num && b_nodes->num < a_nodes->next->num)
-			{
-				b_nodes->category = i;
-			}
-			b_nodes = b_nodes->next;
-		}
-		a_nodes = a_nodes->next;
-		i++;
-	}
-}
+// 	largest_node = a_nodes->prev;
+// 	i = 1;
+// 	while (i <=  7)
+// 	{
+// 		start = 0;
+// 		while (b_nodes != heads->head_b || !(start)++)
+// 		{
+// 			if (b_nodes->num > largest_node->num)
+// 			{
+// 				b_nodes->category = 6;
+// 			}
+// 			else if (b_nodes->num > a_nodes->num && b_nodes->num < a_nodes->next->num)
+// 			{
+// 				b_nodes->category = i;
+// 			}
+// 			b_nodes = b_nodes->next;
+// 		}
+// 		a_nodes = a_nodes->next;
+// 		i++;
+// 	}
+// }
 
 int it_is_cheap(t_manager *heads, t_stack *stack_1, t_stack *stack_2)
 {
@@ -88,76 +88,6 @@ int it_is_cheap(t_manager *heads, t_stack *stack_1, t_stack *stack_2)
 	return (0);
 }
 
-// int calculate_total_cost(t_stack *a, t_stack *b)
-// {
-// 	int cost_a;
-// 	int cost_b;
-// 	int abs_a;
-// 	int abs_b;
-
-// 	cost_a = a->cost_to_top;
-// 	cost_b = b->cost_to_top;
-// 	if (cost_a >= 0 && cost_b >= 0)
-// 		return (cost_a > cost_b ? cost_a : cost_b);
-// 	if (cost_a < 0 && cost_b < 0)
-// 	{
-// 		abs_a = cost_a * -1;
-// 		abs_b = cost_b * -1;
-// 		if (abs_a > abs_b)
-// 			return (abs_a);
-// 		else
-// 			return (abs_b);
-// 	}
-// 	return (abs(cost_a) + abs(cost_b));
-// }
-
-// void find_target(t_manager *heads, t_stack *stack_a, t_stack *stack_b)
-// {
-// 	int	start;
-
-// 	start = 0;
-// 	while (stack_a != heads->head_a || !start)
-// 	{
-// 		// if (heads->cost > start)
-// 		// 	return ;
-// 		if (stack_a->index > stack_b->index)
-// 		{
-// 			if (it_is_cheap(heads, stack_a, stack_b))
-// 			{
-				
-// 				heads->target_in_a = stack_a;
-// 				heads->target_in_b = stack_b;
-// 			}
-// 			return ;
-// 		}
-// 		stack_a = stack_a->next;
-// 		start++;
-// 	}
-// }
-
-// void find_target(t_manager *heads, t_stack *node_b)
-// {void	(t_manager *heads, t_stack *, heads->target_in_b->cost_to_top);
-// 	t_stack *a;
-// 	int i;
-
-// 	a = heads->head_a;
-// 	i = 0;
-// 	while (i < heads->size_a)
-// 	{
-// 		// Check if node_b fits between a and a->next
-// 		if (node_b->index > a->index && node_b->index < a->next->index)
-// 		{
-// 			if (calculate_total_cost(a->next, node_b) < heads->cost)
-// 			{
-// 				heads->cost = calculate_total_cost(a->next, node_b);
-// 				heads->target_in_a = a->next;
-// 				heads->target_in_b = node_b;
-// 			}
-// 		}
-// 		a = a->next;
-// 		i++;
-// 	}
-// }
 void calculator(t_manager *heads)
 {
 	t_stack	*stack_b;
@@ -182,6 +112,5 @@ void calculator(t_manager *heads)
 		else
 			switcheroo(heads);
 	}
-	
 	return ;
 }
