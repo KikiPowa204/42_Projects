@@ -6,29 +6,29 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 10:13:39 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/13 10:54:19 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 08:23:43 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    print_result(int *nums, int *path)
-{
-	int i;
+//void	print_result(int *nums, int *path)
+// {
+// 	int i;
 
-	i = 0;
-	while (nums[i])
-	{
-		//ft_printf("final nums:%d", nums[i]);
-		i++;
-	}
-	i = 0;
-	while (path[i])
-	{
-		ft_printf("%s\n", read_map(path[i]));
-		i++;
-	}
-}
+// 	i = 0;
+// 	while (nums[i])
+// 	{
+// 		//ft_printf("final nums:%d", nums[i]);
+// 		i++;
+// 	}
+// 	i = 0;
+// 	while (path[i])
+// 	{
+// 		ft_printf("%s\n", read_map(path[i]));
+// 		i++;
+// 	}
+// }
 
 int *make_array (t_stack *stack_a, int size)
 {
@@ -108,7 +108,7 @@ int sort_seven(t_manager *heads)
 		return (ft_lstclear(&(heads->head_a)), 0);
 	ft_memset(instructions, 0, (20 * sizeof(int)));
 	best_timeline(nums, 0, &min_moves, instructions);
-	print_result(nums, g_winning_path);
+//	print_result(nums, g_winning_path);
 	order_stacks(heads, g_winning_path);
 	free(nums);
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 09:47:34 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/19 07:28:26 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 08:25:13 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void check_rotation(t_manager *heads, int cost_to_top)
 		while (i < cost_to_top)
 		{
 			rrotate_both(heads);
-			ft_printf("rrr\n");
+			//ft_printf("rrr\n");
 			i++;
 		}
 	}
@@ -32,7 +32,7 @@ void check_rotation(t_manager *heads, int cost_to_top)
 		while (i < cost_to_top)
 		{
 			rotate_both(heads);
-			ft_printf("rr\n");
+			//ft_printf("rr\n");
 			i++;
 		}
 	}
@@ -45,17 +45,17 @@ void to_r_or_rr(t_manager *heads, t_stack *head, t_stack *target, char stack)
 		if (target->cost_to_top > 0)
 		{
 			like_a_record_baby(&head, heads, stack);
-			ft_printf("r");
+			//ft_printf("r");
 		}
 		else if (target->cost_to_top < 0)
 		{
 			you_spin_me_round(&head, heads, stack);
-			ft_printf("rr");
+			//ft_printf("rr");
 		}
-		if (stack == 'a')
-			ft_printf("a\n");
-		else if (stack == 'b')
-			ft_printf("b\n");
+		// if (stack == 'a')
+		// 	ft_printf("a\n");
+		// else if (stack == 'b')
+		// 	ft_printf("b\n");
 	}
 }
 
@@ -115,7 +115,7 @@ void unload(t_manager *heads)
 		if (heads->head_a->index == 1)
 		{
 			like_a_record_baby(&(heads)->head_a, heads, 'a');
-			ft_printf("ra\n");
+			//ft_printf("ra\n");
 		}
 		else
 		{

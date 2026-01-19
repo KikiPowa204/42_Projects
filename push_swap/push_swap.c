@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:35:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/19 07:36:32 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 08:39:31 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,13 @@ int main(int argc, char **argv)
 	int start = 0;
 	while (stack_a != heads.head_a || !(start)++)
 	{
-		ft_printf("stack a: %d\n", stack_a->index);
+		//ft_printf("stack a: %d\n", stack_a->index);
 		//ft_printf("stack b: %d \n", stack_b->num);
 		i++;
 		stack_a = stack_a->next;
 //		stack_b = stack_b->next;
 	}
-	ft_printf("%d - %d", ft_lstsize(heads.head_a), ft_lstsize(heads.head_b));
+	//ft_printf("%d - %d", ft_lstsize(heads.head_a), ft_lstsize(heads.head_b));
 	ft_lstclear(&(heads).head_a);
 	//ft_printf("%d", heads.size_b);
 	return 0;

@@ -1,0 +1,29 @@
+Push_swap test results for (5, 4, 9, 2)
+----------------------------------------
+Perm: (5, 4, 9, 2) -> Moves: 2
+Perm: (5, 4, 2, 9) -> Moves: 5
+Perm: (5, 9, 4, 2) -> Moves: 3
+Perm: (5, 9, 2, 4) -> Moves: 2
+Perm: (5, 2, 4, 9) -> Moves: 4
+Perm: (5, 2, 9, 4) -> Moves: 3
+Perm: (4, 5, 9, 2) -> Moves: 1
+Perm: (4, 5, 2, 9) -> Moves: 4
+Perm: (4, 9, 5, 2) -> Moves: 4
+Perm: (4, 9, 2, 5) -> Moves: 3
+Perm: (4, 2, 5, 9) -> Moves: 1
+Perm: (4, 2, 9, 5) -> Moves: 6
+Perm: (9, 5, 4, 2) -> Moves: 4
+Perm: (9, 5, 2, 4) -> Moves: 3
+Perm: (9, 4, 5, 2) -> Moves: 3
+Perm: (9, 4, 2, 5) -> Moves: 2
+Perm: (9, 2, 5, 4) -> Moves: 4
+Perm: (9, 2, 4, 5) -> Moves: 1
+Perm: (2, 5, 4, 9) -> Moves: 3
+Perm: (2, 5, 9, 4) -> Moves: 2
+Perm: (2, 4, 5, 9) -> Moves: 0
+Perm: (2, 4, 9, 5) -> Moves: 5
+Perm: (2, 9, 5, 4) -> Moves: 5
+Perm: (2, 9, 4, 5) -> Moves: 2
+----------------------------------------
+Total permutations tested: 24
+Worst case: (4, 2, 9, 5) with 6 moves.
