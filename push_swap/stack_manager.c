@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 09:17:31 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/18 10:16:58 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 07:28:46 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ int stack_manager(t_manager *heads, char **argv)
 	if (!sort_seven(heads))
 		return (0);
 	heads->first_pos = heads->head_a;
-	form_categories(heads->head_b, heads->head_a, heads);
+	//form_categories(heads->head_b, heads->head_a, heads);
 	while (heads->size_b > 0)
 	{
 		heads->cost = INT_MAX;

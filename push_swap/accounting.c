@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:55:17 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/18 10:00:39 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 07:35:04 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ int it_is_cheap(t_manager *heads, t_stack *stack_1, t_stack *stack_2)
 // }
 
 // void find_target(t_manager *heads, t_stack *node_b)
-// {
+// {void	(t_manager *heads, t_stack *, heads->target_in_b->cost_to_top);
 // 	t_stack *a;
 // 	int i;
 
@@ -168,6 +168,9 @@ void calculator(t_manager *heads)
 		find_ft(heads, heads->first_pos, stack_b);
 		stack_b = stack_b->next;
 	}
+	move_to_position(heads, heads->target_in_a->cost_to_top, heads->target_in_b->cost_to_top);
+	cost_to_top(heads->head_a, heads->size_a, 0);
+	cost_to_top(heads->head_b, heads->size_b, 0);
 	if (heads->size_b)
 	{
 		if (!(heads->target_in_a->cost_to_top - heads->target_in_b->cost_to_top))

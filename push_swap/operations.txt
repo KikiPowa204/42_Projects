@@ -1,0 +1,672 @@
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+ra
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+pb
+sa
+ra
+ra
+sa
+ra
+ra
+sa
+rra
+sa
+ra
+ra
+ra
+sa
+ra
+pa
+ra
+rb
+rb
+pa
+rr
+pa
+ra
+pa
+ra
+ra
+ra
+ra
+pa
+ra
+ra
+ra
+pa
+pa
+pa
+rra
+rra
+rra
+pa
+rr
+pa
+rra
+rra
+rra
+pa
+ra
+pa
+ra
+pa
+ra
+rrb
+rrb
+rrb
+pa
+rrb
+rrb
+rrb
+rrb
+pa
+rrb
+pa
+rrr
+pa
+rrr
+pa
+rrb
+rrb
+rrb
+pa
+ra
+ra
+ra
+rrb
+pa
+rrr
+rrr
+rrr
+pa
+rra
+rra
+rra
+rb
+pa
+rb
+rb
+pa
+ra
+rb
+rb
+pa
+ra
+ra
+ra
+pa
+ra
+ra
+pa
+rra
+rra
+rra
+rra
+rb
+rb
+rb
+rb
+rb
+rb
+pa
+rr
+rr
+rr
+pa
+ra
+ra
+ra
+rrb
+pa
+ra
+ra
+ra
+rrb
+rrb
+pa
+rr
+pa
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+rrb
+rrb
+pa
+rrb
+pa
+ra
+ra
+ra
+rrb
+pa
+ra
+ra
+ra
+ra
+pa
+rr
+rr
+pa
+rra
+rb
+rb
+rb
+pa
+pa
+ra
+ra
+ra
+ra
+pa
+rr
+rr
+pa
+ra
+ra
+ra
+rb
+rb
+rb
+rb
+rb
+pa
+rb
+rb
+rb
+rb
+pa
+rb
+pa
+ra
+pa
+rb
+rb
+rb
+rb
+rb
+rb
+pa
+rra
+rra
+rra
+rra
+pa
+ra
+pa
+ra
+rb
+rb
+rb
+rb
+rb
+rb
+pa
+rra
+rra
+rra
+pa
+rrr
+pa
+rra
+rra
+rra
+rb
+rb
+rb
+rb
+rb
+rb
+pa
+pa
+rr
+rr
+pa
+rra
+pa
+ra
+pa
+ra
+ra
+pa
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pa
+ra
+ra
+ra
+pa
+rrr
+pa
+ra
+rrb
+pa
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+rrb
+rrb
+pa
+rr
+pa
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+pa
+ra
+ra
+ra
+rrb
+rrb
+pa
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pa
+rr
+pa
+rr
+pa
+ra
+rb
+rb
+rb
+pa
+ra
+pa
+rra
+pa
+rra
+rb
+rb
+rb
+rb
+rb
+pa
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pa
+ra
+rb
+rb
+rb
+rb
+rb
+rb
+rb
+rb
+pa
+rra
+rra
+rb
+pa
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pa
+rra
+rb
+pa
+ra
+rb
+rb
+rb
+rb
+pa
+ra
+ra
+ra
+ra
+ra
+rrb
+rrb
+rrb
+rrb
+rrb
+pa
+rr
+rr
+pa
+rr
+pa
+ra
+ra
+ra
+ra
+pa
+pa
+ra
+ra
+ra
+rrb
+rrb
+pa
+ra
+ra
+rrb
+pa
+ra
+ra
+ra
+pa
+rr
+rr
+pa
+ra
+ra
+ra
+ra
+ra
+pa
+rr
+pa
+rr
+pa
+rr
+pa
+ra
+ra
+ra
+ra
+ra
+ra
+rrb
+pa
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+rrb
+pa
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pa
+rra
+rra
+rra
+rra
+stack a: 1
+stack a: 2
+stack a: 3
+stack a: 4
+stack a: 5
+stack a: 6
+stack a: 7
+stack a: 8
+stack a: 9
+stack a: 10
+stack a: 11
+stack a: 12
+stack a: 13
+stack a: 14
+stack a: 15
+stack a: 16
+stack a: 17
+stack a: 18
+stack a: 19
+stack a: 20
+stack a: 21
+stack a: 22
+stack a: 23
+stack a: 24
+stack a: 25
+stack a: 26
+stack a: 27
+stack a: 28
+stack a: 29
+stack a: 30
+stack a: 31
+stack a: 32
+stack a: 33
+stack a: 34
+stack a: 35
+stack a: 36
+stack a: 37
+stack a: 38
+stack a: 39
+stack a: 40
+stack a: 41
+stack a: 42
+stack a: 43
+stack a: 44
+stack a: 45
+stack a: 46
+stack a: 47
+stack a: 48
+stack a: 49
+stack a: 50
+stack a: 51
+stack a: 52
+stack a: 53
+stack a: 54
+stack a: 55
+stack a: 56
+stack a: 57
+stack a: 58
+stack a: 59
+stack a: 60
+stack a: 61
+stack a: 62
+stack a: 63
+stack a: 64
+stack a: 65
+stack a: 66
+stack a: 67
+stack a: 68
+stack a: 69
+stack a: 70
+stack a: 71
+stack a: 72
+stack a: 73
+stack a: 74
+stack a: 75
+stack a: 76
+stack a: 77
+stack a: 78
+stack a: 79
+stack a: 80
+stack a: 81
+stack a: 82
+stack a: 83
+stack a: 84
+stack a: 85
+stack a: 86
+stack a: 87
+stack a: 88
+stack a: 89
+stack a: 90
+stack a: 91
+stack a: 92
+stack a: 93
+stack a: 94
+stack a: 95
+stack a: 96
+stack a: 97
+stack a: 98
+stack a: 99
+stack a: 100
+100 - 0
