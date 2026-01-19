@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 09:47:34 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/19 09:49:24 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 12:00:09 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,6 @@ void fix_diff(t_manager *heads, int CTT_A, int CTT_B)
 		CTT_B--;
 	}
 }
-
-
 
 void move_to_position(t_manager *heads, int CTT_A, int CTT_B)
 {

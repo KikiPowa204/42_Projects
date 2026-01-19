@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:35:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/19 10:08:49 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 11:55:56 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ int handle_data(t_manager *heads, char **list, int how_many)
 	return 1;
 }
 
-#include "unistd.h"
 int main(int argc, char **argv)
 {
 	int					how_many;
@@ -79,4 +78,5 @@ int main(int argc, char **argv)
 		return (0);	
 	final_rotation(&heads);
 	ft_lstclear(&(heads).head_a);
+	return (0);
 }

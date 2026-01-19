@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:37:36 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/19 09:54:04 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 11:32:28 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct s_manager
 	t_stack	*first_pos;
 	t_stack	*target_in_a;
 	t_stack	*target_in_b;
+	int		win_inst[20];
+	int		inst[20];
 	int		size_a;
 	int		size_b;
 	int		cost;
@@ -86,3 +88,4 @@ int		it_is_cheap(t_manager *heads, t_stack *stack_1, t_stack *stack_2);
 void	to_r_or_rr(t_manager *heads, t_stack *head, t_stack *target, char stack);
 void	form_categories(t_stack *b_nodes, t_stack *a_nodes, t_manager *heads);
 void	move_to_position(t_manager *heads, int CTT_A, int CTT_B);
+//int		valid_address(int compare, char s_or_l);

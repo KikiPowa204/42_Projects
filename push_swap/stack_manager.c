@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 09:17:31 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/19 10:07:09 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 12:28:57 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void find_ft(t_manager *heads, t_stack *starting, t_stack *stack_b)
 
 int stack_manager(t_manager *heads, char **argv)
 {
-	int 	check;
+	int	check;
 
 	if (!(make_list(heads, argv)))
 		return (-1);

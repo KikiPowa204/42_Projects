@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 10:13:39 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/19 09:52:46 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 12:46:58 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int check_array(int *nums)
 	return (1);
 }
 
-void best_timeline(int *nums, int depth, int *min_moves, int *instructions)
+void best_timeline(int *nums, int depth, int *min_moves, t_manager *heads)
 {
 	if (depth >= *min_moves)
 		return ;
@@ -53,24 +53,24 @@ void best_timeline(int *nums, int depth, int *min_moves, int *instructions)
 	{
 		if (depth < *min_moves)
 		{
-			ft_bzero(&instructions[depth + 1], (20 - depth) * sizeof(int));
+			ft_bzero(&(heads)->inst[depth + 1], (20 - depth) * sizeof(int));
 			*min_moves = depth;
-			ft_bzero(g_winning_path, 20 * sizeof(int));
-			ft_memcpy(g_winning_path, instructions, (depth) * (sizeof(int)));
+			ft_bzero(heads->win_inst, 20 * sizeof(int));
+			ft_memcpy(heads->win_inst, heads->inst, (depth) * (sizeof(int)));
 		}
 		return ;
 	}
-	instructions[depth] = 1;
+	heads->inst[depth] = 1;
 	nums = swap_array(nums);
-	best_timeline(nums, depth + 1, min_moves, instructions);
+	best_timeline(nums, depth + 1, min_moves, heads);
 	nums = swap_array(nums);
-	instructions[depth] = 4;
+	heads->inst[depth] = 4;
 	nums = rr_array(nums, arr_size(nums) - 1);
-	best_timeline(nums, depth + 1, min_moves, instructions);
+	best_timeline(nums, depth + 1, min_moves, heads);
 	nums = r_array(nums, arr_size(nums) - 1);
-	instructions[depth] = 7;
+	heads->inst[depth] = 7;
 	nums = r_array(nums, arr_size(nums) - 1);
-	best_timeline(nums, depth + 1, min_moves, instructions);
+	best_timeline(nums, depth + 1, min_moves, heads);
 	nums = rr_array(nums, arr_size(nums) - 1);
 }
 
@@ -79,7 +79,6 @@ int sort_seven(t_manager *heads)
 	int 	*nums;
 	int		size;
 	int		min_moves;
-	int		instructions[20];
 
 	min_moves = 20;
 	if (checker(heads->head_a, heads))
@@ -88,9 +87,11 @@ int sort_seven(t_manager *heads)
 	nums = make_array(heads->head_a, size);
 	if (!nums)
 		return (ft_lstclear(&(heads->head_a)), 0);
-	ft_memset(instructions, 0, (20 * sizeof(int)));
-	best_timeline(nums, 0, &min_moves, instructions);
-	order_stacks(heads, g_winning_path);
+	ft_memset(heads->inst, 0, (20 * sizeof(int)));
+	ft_memset(heads->win_inst, 0, (20 * sizeof(int)));
+	best_timeline(nums, 0, &min_moves, heads);
+	order_stacks(heads, heads->win_inst);
+	heads->size_a = ft_lstsize(heads->head_a);
 	free(nums);
 	return (1);
 }
