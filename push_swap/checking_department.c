@@ -6,13 +6,13 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 08:39:33 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/15 08:16:20 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 16:50:10 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char **create_map(char **map)
+char	**create_map(char **map)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ char **create_map(char **map)
 			return (free(map), NULL);
 		i++;
 	}
-	ft_strlcpy(map[0], "nothing", 8); 
+	ft_strlcpy(map[0], "nothing", 8);
 	ft_strlcpy(map[1], "sa", 3);
 	ft_strlcpy(map[2], "sb", 3);
 	ft_strlcpy(map[3], "ss", 3);
@@ -41,18 +41,18 @@ char **create_map(char **map)
 	return (map);
 }
 
-char    *read_map(int path)
+char	*read_map(int path)
 {
-    char **map;
+	char	**map;
 
-    map = 0;
-    map = create_map(map);
-    return (map[path]);
+	map = 0;
+	map = create_map(map);
+	return (map[path]);
 }
 
-int checker(t_stack *stack, t_manager *heads)
+int	checker(t_stack *stack, t_manager *heads)
 {
-	int prev_index;
+	int	prev_index;
 
 	prev_index = stack->index;
 	stack = stack->next;

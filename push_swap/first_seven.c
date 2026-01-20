@@ -6,16 +6,16 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 10:13:39 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/19 12:46:58 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 16:45:59 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int *make_array (t_stack *stack_a, int size)
+int	*make_array(t_stack *stack_a, int size)
 {
-	int *nums;
-	int i;
+	int	*nums;
+	int	i;
 
 	nums = malloc((size + 2) * sizeof(int));
 	if (!nums)
@@ -31,9 +31,9 @@ int *make_array (t_stack *stack_a, int size)
 	return (nums);
 }
 
-int check_array(int *nums)
+int	check_array(int *nums)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (nums[i])
@@ -45,7 +45,7 @@ int check_array(int *nums)
 	return (1);
 }
 
-void best_timeline(int *nums, int depth, int *min_moves, t_manager *heads)
+void	best_timeline(int *nums, int depth, int *min_moves, t_manager *heads)
 {
 	if (depth >= *min_moves)
 		return ;
@@ -74,9 +74,9 @@ void best_timeline(int *nums, int depth, int *min_moves, t_manager *heads)
 	nums = rr_array(nums, arr_size(nums) - 1);
 }
 
-int sort_seven(t_manager *heads)
+int	sort_seven(t_manager *heads)
 {
-	int 	*nums;
+	int		*nums;
 	int		size;
 	int		min_moves;
 

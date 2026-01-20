@@ -6,13 +6,13 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:42:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/19 11:19:10 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 16:49:04 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int valid_address(int compare, char s_or_l)
+int	valid_address(int compare, char s_or_l)
 {
 	static int	check;
 
@@ -20,12 +20,12 @@ int valid_address(int compare, char s_or_l)
 		check = -1;
 	else if (s_or_l == 'l' && check == -1)
 		return (0);
-	return 1;
+	return (1);
 }
 
-int check_length(char **list, int amount)
+int	check_length(char **list, int amount)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < amount)
@@ -37,11 +37,11 @@ int check_length(char **list, int amount)
 	return (1);
 }
 
-int check_valid(char **list, int amount)
+int	check_valid(char **list, int amount)
 {
-	int index;
-	int num;
-	int	valid;	
+	int	index;
+	int	num;
+	int	valid;
 
 	index = 0;
 	valid = 1;

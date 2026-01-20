@@ -6,13 +6,13 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:24:38 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/19 09:45:45 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 15:09:24 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void order_stacks(t_manager *heads, int *path)
+void	order_stacks(t_manager *heads, int *path)
 {
 	int		i;
 
@@ -37,7 +37,7 @@ void order_stacks(t_manager *heads, int *path)
 	}
 }
 
-void unload(t_manager *heads)
+void	unload(t_manager *heads)
 {
 	while (heads->size_a > 7)
 	{

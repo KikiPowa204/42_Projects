@@ -6,13 +6,13 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:55:17 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/19 09:41:50 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 16:58:19 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void cost_to_top(t_stack *node, int size, int i)
+void	cost_to_top(t_stack *node, int size, int i)
 {
 	t_stack	*head;
 
@@ -20,18 +20,18 @@ void cost_to_top(t_stack *node, int size, int i)
 	i = 0;
 	while (node->next != node)
 	{
-		while (i <= size/2)
+		while (i <= size / 2)
 		{
-			node->cost_to_top = i; 
+			node->cost_to_top = i;
 			node = node->next;
 			i++;
 		}
 		i = -1;
 		node = head->prev;
-		while (i >= (size/2) * -1)
+		while (i >= (size / 2) * -1)
 		{
-			node->cost_to_top = i; 
-			node =  node->prev;
+			node->cost_to_top = i;
+			node = node->prev;
 			i--;
 		}
 		break ;
@@ -55,7 +55,8 @@ void cost_to_top(t_stack *node, int size, int i)
 // 			{
 // 				b_nodes->category = 6;
 // 			}
-// 			else if (b_nodes->num > a_nodes->num && b_nodes->num < a_nodes->next->num)
+// 			else if (b_nodes->num > a_nodes->num 
+			//&& b_nodes->num < a_nodes->next->num)
 // 			{
 // 				b_nodes->category = i;
 // 			}
@@ -66,7 +67,7 @@ void cost_to_top(t_stack *node, int size, int i)
 // 	}
 // }
 
-int it_is_cheap(t_manager *heads, t_stack *stack_1, t_stack *stack_2)
+int	it_is_cheap(t_manager *heads, t_stack *stack_1, t_stack *stack_2)
 {
 	int	diff;
 	int	ctt_a;
@@ -88,7 +89,7 @@ int it_is_cheap(t_manager *heads, t_stack *stack_1, t_stack *stack_2)
 	return (0);
 }
 
-void calculator(t_manager *heads)
+void	calculator(t_manager *heads)
 {
 	t_stack	*stack_b;
 
@@ -98,12 +99,14 @@ void calculator(t_manager *heads)
 		find_ft(heads, heads->first_pos, stack_b);
 		stack_b = stack_b->next;
 	}
-	move_to_position(heads, heads->target_in_a->cost_to_top, heads->target_in_b->cost_to_top);
+	move_to_position(heads, heads->target_in_a->cost_to_top,
+		heads->target_in_b->cost_to_top);
 	cost_to_top(heads->head_a, heads->size_a, 0);
 	cost_to_top(heads->head_b, heads->size_b, 0);
 	if (heads->size_b)
 	{
-		if (!(heads->target_in_a->cost_to_top - heads->target_in_b->cost_to_top))
+		if (!(heads->target_in_a->cost_to_top
+				- heads->target_in_b->cost_to_top))
 		{
 			check_rotation(heads, heads->target_in_a->cost_to_top);
 			push_a(heads);

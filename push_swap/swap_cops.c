@@ -6,17 +6,17 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 08:39:31 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/19 08:06:37 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 16:53:22 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void freaky_friday(t_stack **head)
+void	freaky_friday(t_stack **head)
 {
-	t_stack *node_1;
-	t_stack *node_2;
-	t_stack *last_node;
+	t_stack	*node_1;
+	t_stack	*node_2;
+	t_stack	*last_node;
 
 	node_1 = *head;
 	node_2 = node_1->next;
@@ -30,14 +30,14 @@ void freaky_friday(t_stack **head)
 	*head = node_2;
 }
 
-void parent_trap(t_manager *heads) //ss
+void	parent_trap(t_manager *heads)
 {
 	freaky_friday(&(heads)->head_a);
 	freaky_friday(&(heads)->head_b);
 	ft_printf("ss\n");
 }
 
-void pick_path(t_manager *heads, int num)
+void	pick_path(t_manager *heads, int num)
 {
 	if (num == 1)
 	{

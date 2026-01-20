@@ -6,15 +6,16 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 09:17:31 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/19 12:28:57 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/20 07:59:44 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void spin_rev(t_stack *stack, t_stack *head)
+void	spin_rev(t_stack *stack, t_stack *head)
 {
 	t_stack	*prev_node;
+
 	prev_node = stack;
 	stack = stack->next;
 	while (stack != head)
@@ -26,13 +27,15 @@ void spin_rev(t_stack *stack, t_stack *head)
 	stack->prev = prev_node;
 }
 
-int index_list(t_stack *stack_a, t_manager *heads, int start)
+int	index_list(t_stack *stack_a, t_manager *heads, int start)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	while (stack_a != heads->head_a || !(start)++)
 	{
 		stack_a->index = heads->size_a;
+		if (heads->size_a > 450)
+			stack_a->index--;
 		tmp = stack_a->next;
 		while (tmp != stack_a)
 		{
@@ -47,10 +50,10 @@ int index_list(t_stack *stack_a, t_manager *heads, int start)
 	return (1);
 }
 
-int make_list(t_manager *heads, char **argv)
+int	make_list(t_manager *heads, char **argv)
 {
 	int		i;
-	t_stack *stack_a;
+	t_stack	*stack_a;
 
 	i = 1;
 	stack_a = ft_lstnew(ft_atoi(argv[0]));
@@ -70,7 +73,7 @@ int make_list(t_manager *heads, char **argv)
 	return (1);
 }
 
-void find_ft(t_manager *heads, t_stack *starting, t_stack *stack_b)
+void	find_ft(t_manager *heads, t_stack *starting, t_stack *stack_b)
 {
 	int		start;
 
@@ -89,7 +92,7 @@ void find_ft(t_manager *heads, t_stack *starting, t_stack *stack_b)
 		starting = starting->next;
 		start++;
 	}
-	if (start == heads->size_a 
+	if (start == heads->size_a
 		&& it_is_cheap(heads, heads->first_pos, stack_b))
 	{
 		heads->target_in_a = starting;
@@ -97,10 +100,8 @@ void find_ft(t_manager *heads, t_stack *starting, t_stack *stack_b)
 	}
 }
 
-int stack_manager(t_manager *heads, char **argv)
+int	stack_manager(t_manager *heads, char **argv, int check)
 {
-	int	check;
-
 	if (!(make_list(heads, argv)))
 		return (-1);
 	heads->size_a = ft_lstsize(heads->head_a);
@@ -108,6 +109,10 @@ int stack_manager(t_manager *heads, char **argv)
 	check = index_list(heads->head_a, heads, 0);
 	if (!check)
 		return (0);
+	if (checker(heads->head_a, heads))
+		return (ft_lstclear(heads->head_a), 1);
+	// if (heads->size_a > 450)
+	// 	return (radix(heads), 1);
 	unload(heads);
 	if (!sort_seven(heads))
 		return (0);

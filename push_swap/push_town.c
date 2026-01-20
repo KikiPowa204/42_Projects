@@ -6,13 +6,13 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 08:45:54 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/19 09:41:34 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 16:55:26 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void push_a(t_manager *heads)
+void	push_a(t_manager *heads)
 {
 	t_stack	*node;
 	t_stack	*head_a;
@@ -34,10 +34,11 @@ void push_a(t_manager *heads)
 		heads->head_b = NULL;
 	ft_printf("pa\n");
 }
-void push_b(t_manager *heads)
+
+void	push_b(t_manager *heads)
 {
-	t_stack *node;
-	t_stack *head_b;
+	t_stack	*node;
+	t_stack	*head_b;
 
 	node = heads->head_a;
 	node->prev->next = node->next;
@@ -63,7 +64,7 @@ void push_b(t_manager *heads)
 	ft_printf("pb\n");
 }
 
-void post_station(t_manager *heads, char instruction)
+void	post_station(t_manager *heads, char instruction)
 {
 	if (instruction == 'b')
 		push_b(heads);

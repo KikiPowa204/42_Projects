@@ -6,13 +6,13 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 09:47:34 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/19 12:00:09 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/19 17:00:20 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void check_rotation(t_manager *heads, int cost_to_top)
+void	check_rotation(t_manager *heads, int cost_to_top)
 {
 	int	i;
 
@@ -36,7 +36,7 @@ void check_rotation(t_manager *heads, int cost_to_top)
 	}
 }
 
-void to_r_or_rr(t_manager *heads, t_stack *head, t_stack *target, char stack)
+void	to_r_or_rr(t_manager *heads, t_stack *head, t_stack *target, char stack)
 {
 	while (target != head)
 	{
@@ -50,7 +50,8 @@ void to_r_or_rr(t_manager *heads, t_stack *head, t_stack *target, char stack)
 		}
 	}
 }
-void fix_diff(t_manager *heads, int CTT_A, int CTT_B)
+
+void	fix_diff(t_manager *heads, int CTT_A, int CTT_B)
 {
 	while (CTT_A - CTT_B > 0)
 	{
@@ -64,7 +65,7 @@ void fix_diff(t_manager *heads, int CTT_A, int CTT_B)
 	}
 }
 
-void move_to_position(t_manager *heads, int CTT_A, int CTT_B)
+void	move_to_position(t_manager *heads, int CTT_A, int CTT_B)
 {
 	if (CTT_A < 0 && CTT_B < 0 && (CTT_A - CTT_B < 0 || CTT_B - CTT_A < 0))
 	{
@@ -85,12 +86,12 @@ void move_to_position(t_manager *heads, int CTT_A, int CTT_B)
 	}
 }
 
-void switcheroo(t_manager *heads)
+void	switcheroo(t_manager *heads)
 {
 	int	i;
 
- 	if (heads->head_a->next == heads->head_a || !(heads->size_b))
- 		return;
+	if (heads->head_a->next == heads->head_a || !(heads->size_b))
+		return ;
 	i = 0;
 	while (heads->target_in_a != heads->head_a)
 	{
