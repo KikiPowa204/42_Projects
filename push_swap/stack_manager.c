@@ -6,7 +6,11 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 09:17:31 by knajmech          #+#    #+#             */
+<<<<<<< Updated upstream
 /*   Updated: 2026/01/18 13:00:11 by knajmech         ###   ########.fr       */
+=======
+/*   Updated: 2026/01/20 10:41:57 by knajmech         ###   ########.fr       */
+>>>>>>> Stashed changes
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +110,11 @@ int stack_manager(t_manager *heads, char **argv)
 	g_valid = index_list(heads->head_a, heads, 0);
 	if (!g_valid)
 		return (0);
+<<<<<<< Updated upstream
+=======
+	if (checker(heads->head_a, heads))
+		return (ft_lstclear(&(heads)->head_a), 1);
+>>>>>>> Stashed changes
 	unload(heads);
 	if (!sort_seven(heads))
 		return (0);

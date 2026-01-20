@@ -6,7 +6,11 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 08:59:26 by knajmech          #+#    #+#             */
+<<<<<<< Updated upstream
 /*   Updated: 2026/01/18 12:35:42 by knajmech         ###   ########.fr       */
+=======
+/*   Updated: 2026/01/20 11:54:28 by knajmech         ###   ########.fr       */
+>>>>>>> Stashed changes
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +19,7 @@
 void	like_a_record_baby(t_stack **stack, t_manager *heads, char a_or_b)
 {
 	*stack = (*stack)->next;
+<<<<<<< Updated upstream
 	if (a_or_b == 'b')
 	{
 		heads->head_b = *stack;
@@ -22,6 +27,11 @@ void	like_a_record_baby(t_stack **stack, t_manager *heads, char a_or_b)
 	}
 	else if (a_or_b == 'a')
 	{
+=======
+	if (a_or_b == 'b' || a_or_b == 'B')
+		heads->head_b = *stack;
+	else if (a_or_b == 'a' || a_or_b == 'A')
+>>>>>>> Stashed changes
 		heads->head_a = *stack;
 		ft_printf("ra\n");
 	}

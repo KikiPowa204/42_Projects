@@ -6,7 +6,11 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:55:17 by knajmech          #+#    #+#             */
+<<<<<<< Updated upstream
 /*   Updated: 2026/01/18 11:53:41 by knajmech         ###   ########.fr       */
+=======
+/*   Updated: 2026/01/20 12:02:41 by knajmech         ###   ########.fr       */
+>>>>>>> Stashed changes
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +71,50 @@ void form_categories(t_stack *b_nodes, t_stack *a_nodes, t_manager *heads)
 	}
 }
 
+<<<<<<< Updated upstream
 int it_is_cheap(t_manager *heads, t_stack *stack_1, t_stack *stack_2)
+=======
+int	check_next(t_manager *h, t_stack *start, t_stack *b)
+{
+	t_stack	*og;
+	int		cheapest;
+	int		i;
+
+	cheapest = 10000;
+	i = 0;
+	og = start;
+	while (i++ < h->size_a / 2 && cheapest > i)
+	{
+		if (start->index > b->index)
+		{
+			cheapest = i;
+			break ;
+		}
+		start = start->next;
+	}
+	i = -1;
+	start = og->prev->prev;
+	while (i-- > (h->size_a / 2) * -1 && cheapest > (i * -1))
+	{
+		if (start->index > b->index)
+		{
+			cheapest = (i * -1);
+			break ;
+		}
+		start = start->prev;
+	}
+	if (cheapest < 10000)
+		return (0);
+	return (cheapest);
+}
+
+int	it_is_cheap(t_manager *heads, t_stack *stack_1, t_stack *stack_2)
+>>>>>>> Stashed changes
 {
 	int	diff;
 	int	ctt_a;
 	int	ctt_b;
+	int	extra_cost;
 
 	if (stack_1->cost_to_top < 0)
 		ctt_a = stack_1->cost_to_top * -1;
@@ -81,11 +124,12 @@ int it_is_cheap(t_manager *heads, t_stack *stack_1, t_stack *stack_2)
 		ctt_b = stack_2->cost_to_top * -1;
 	else
 		ctt_b = stack_2->cost_to_top;
+	extra_cost = check_next(heads, stack_1->next, stack_2);
 	diff = stack_1->cost_to_top - stack_2->cost_to_top;
-	if (diff == 0 && heads->cost > ctt_a)
-		return (heads->cost = stack_1->cost_to_top, 2);
-	if (heads->cost > (ctt_a + ctt_b))
-		return (heads->cost = ctt_a + ctt_b, 1);
+	if (diff == 0 && heads->cost > ctt_a + extra_cost)
+		return (heads->cost = stack_1->cost_to_top + extra_cost, 2);
+	if (heads->cost > (ctt_a + ctt_b + extra_cost))
+		return (heads->cost = ctt_a + ctt_b + extra_cost, 1);
 	return (0);
 }
 

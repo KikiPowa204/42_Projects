@@ -6,12 +6,17 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:24:38 by knajmech          #+#    #+#             */
+<<<<<<< Updated upstream
 /*   Updated: 2026/01/18 12:24:34 by knajmech         ###   ########.fr       */
+=======
+/*   Updated: 2026/01/20 12:00:44 by knajmech         ###   ########.fr       */
+>>>>>>> Stashed changes
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+<<<<<<< Updated upstream
 void focus_category(t_stack *stack_b, t_manager *heads)
 {
 	int	size;
@@ -33,6 +38,37 @@ void focus_category(t_stack *stack_b, t_manager *heads)
 }
 
 void order_stacks(t_manager *heads, int *path)
+=======
+void	find_optimal(t_manager *heads, t_stack *stack_a)
+{
+	t_stack	*current;
+	int		i;
+	int		j;
+	int		biggest_group;
+
+	i = 0;
+	heads->target_in_a = NULL;
+	biggest_group = 20;
+	while (i++ < heads->size_a)
+	{
+		j = 0;
+		current = stack_a;
+		if (stack_a->index < stack_a->next->index)
+		{
+
+			if (j > biggest_group)
+			{
+				biggest_group++;	
+				heads->target_in_a = current;
+			}
+			j++;
+		}
+		stack_a = stack_a->next;
+	}
+}
+
+void	order_stacks(t_manager *heads, int *path)
+>>>>>>> Stashed changes
 {
 	int		i;
 
@@ -56,3 +92,25 @@ void order_stacks(t_manager *heads, int *path)
 		i++;
 	}
 }
+<<<<<<< Updated upstream
+=======
+
+void	unload(t_manager *heads)
+{
+	// find_optimal(heads, heads->head_a);
+	// if (heads->target_in_a)
+	// {
+	// 	cost_to_top(heads->head_a, heads->size_a, 0);
+	// 	while (heads->target_in_a != heads->head_a)
+	// 		to_r_or_rr(heads, heads->head_a, heads->target_in_a, 'a');
+	// }
+	if (!(checker(heads->head_a, heads)))
+		while (heads->size_a > 7)
+		{
+			if (heads->head_a->index == 1)
+				like_a_record_baby(&(heads)->head_a, heads, 'a');
+			else
+				post_station(heads, 'b');
+		}
+}
+>>>>>>> Stashed changes
