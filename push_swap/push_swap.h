@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:37:36 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/20 08:29:16 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/20 09:41:50 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,3 @@ void	to_r_or_rr(t_manager *heads, t_stack *head,
 			t_stack *target, char stack);
 void	form_categories(t_stack *b_nodes, t_stack *a_nodes, t_manager *heads);
 void	move_to_position(t_manager *heads, int CTT_A, int CTT_B);
-int		radix(t_manager *heads);

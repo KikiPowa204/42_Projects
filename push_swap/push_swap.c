@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:35:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/20 09:39:18 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/20 09:41:31 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ int	main(int argc, char **argv)
 		return (0);
 	if (!valid_address(1, 'l'))
 		return (ft_lstclear(&(heads).head_a), ft_printf("ERROR"), 0);
-	//if (heads.size_a < 450)
 	final_rotation(&heads);
 	ft_lstclear(&(heads).head_a);
 	return (0);

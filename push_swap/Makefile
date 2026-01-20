@@ -6,7 +6,7 @@
 #    By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/19 08:06:37 by knajmech          #+#    #+#              #
-#    Updated: 2026/01/20 08:30:29 by knajmech         ###   ########.fr        #
+#    Updated: 2026/01/20 09:42:25 by knajmech         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,7 @@ SRC = 	stack_manager.c\
 		rotation_nation.c\
 		swap_cops.c\
 		push_town.c\
-		accounting.c\
-		radical_dude.c
+		accounting.c
 
 OBJ = $(SRC:.c=.o)
 
