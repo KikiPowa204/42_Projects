@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:37:36 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/20 07:53:28 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/20 08:29:16 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	find_ft(t_manager *heads, t_stack *starting, t_stack *stack_b);
 void	cost_to_top(t_stack *node, int size, int i);
 void	you_spin_me_round(t_stack **stack, t_manager *heads, char a_or_b);
 void	like_a_record_baby(t_stack **stack, t_manager *heads, char a_or_b);
-void	freaky_friday(t_stack **head);
+void	freaky_friday(t_stack **head, char a_o_b);
 void	order_stacks(t_manager *heads, int *path);
 void	parent_trap(t_manager *heads);
 void	push_a(t_manager *heads);
@@ -60,4 +60,4 @@ void	to_r_or_rr(t_manager *heads, t_stack *head,
 			t_stack *target, char stack);
 void	form_categories(t_stack *b_nodes, t_stack *a_nodes, t_manager *heads);
 void	move_to_position(t_manager *heads, int CTT_A, int CTT_B);
-//int		valid_address(int compare, char s_or_l);
+int		radix(t_manager *heads);

@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 09:17:31 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/20 07:59:44 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/20 09:38:51 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,8 +110,8 @@ int	stack_manager(t_manager *heads, char **argv, int check)
 	if (!check)
 		return (0);
 	if (checker(heads->head_a, heads))
-		return (ft_lstclear(heads->head_a), 1);
-	// if (heads->size_a > 450)
+		return (ft_lstclear(&(heads)->head_a), 1);
+	// if (heads->size_a >= 450)
 	// 	return (radix(heads), 1);
 	unload(heads);
 	if (!sort_seven(heads))

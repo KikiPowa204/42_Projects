@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:55:17 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/19 16:58:19 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/20 08:28:45 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,34 +38,34 @@ void	cost_to_top(t_stack *node, int size, int i)
 	}
 }
 
-// void form_categories(t_stack *b_nodes, t_stack *a_nodes, t_manager *heads)
-// {
-// 	int		i;
-// 	int		start;
-// 	t_stack	*largest_node;
+void form_categories(t_stack *b_nodes, t_stack *a_nodes, t_manager *heads)
+{
+	int		i;
+	int		start;
+	t_stack	*largest_node;
 
-// 	largest_node = a_nodes->prev;
-// 	i = 1;
-// 	while (i <=  7)
-// 	{
-// 		start = 0;
-// 		while (b_nodes != heads->head_b || !(start)++)
-// 		{
-// 			if (b_nodes->num > largest_node->num)
-// 			{
-// 				b_nodes->category = 6;
-// 			}
-// 			else if (b_nodes->num > a_nodes->num 
-			//&& b_nodes->num < a_nodes->next->num)
-// 			{
-// 				b_nodes->category = i;
-// 			}
-// 			b_nodes = b_nodes->next;
-// 		}
-// 		a_nodes = a_nodes->next;
-// 		i++;
-// 	}
-// }
+	largest_node = a_nodes->prev;
+	i = 1;
+	while (i <=  7)
+	{
+		start = 0;
+		while (b_nodes != heads->head_b || !(start)++)
+		{
+			if (b_nodes->num > largest_node->num)
+			{
+				b_nodes->category = 6;
+			}
+			else if (b_nodes->num > a_nodes->num 
+			&& b_nodes->num < a_nodes->next->num)
+			{
+				b_nodes->category = i;
+			}
+			b_nodes = b_nodes->next;
+		}
+		a_nodes = a_nodes->next;
+		i++;
+	}
+}
 
 int	it_is_cheap(t_manager *heads, t_stack *stack_1, t_stack *stack_2)
 {
