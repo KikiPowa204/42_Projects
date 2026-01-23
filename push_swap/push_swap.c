@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:35:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/20 09:41:31 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/23 09:05:29 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,26 +48,33 @@ void	final_rotation(t_manager *heads)
 int	handle_data(t_manager *heads, char **list, int how_many)
 {
 	int	valid;
+	int	sorted;
 
+	sorted = 1;
 	valid = check_valid(list, how_many);
 	if (valid <= 0)
-		return (ft_printf("ERROR"), 0);
+		return (ft_printf("Error\n"), 0);
 	if (valid == 1)
-		valid = stack_manager(heads, list, 0);
+		sorted = stack_manager(heads, list, 0);
+	if (sorted == 2)
+		return (2);
+	if (valid <= 0 || !valid_address(1, 'l'))
+		return (ft_lstclear(&(heads)->head_a), ft_printf("Error\n"), 0);
 	return (1);
 }
 
 int	main(int argc, char **argv)
 {
 	int					how_many;
+	int					sorted;
 	char				**list;
 	static t_manager	heads;
 
-	list = 0;
-	if (argc == 2 && !ft_strchr(argv[1], ' '))
+	if ((argc == 2 && !ft_strchr(argv[1], ' ')) || argc == 1)
 		return (0);
 	if (argc == 2 && ft_strchr(argv[1], ' '))
 	{
+		heads.is_split = 1;
 		list = ft_split(argv[1], ' ');
 		how_many = new_argc(argv[1]);
 	}
@@ -76,11 +83,9 @@ int	main(int argc, char **argv)
 		how_many = argc - 2;
 		list = argv + 1;
 	}
-	if (!(handle_data(&heads, list, how_many)))
+	sorted = handle_data(&heads, list, how_many);
+	purge(list, heads.is_split);
+	if (!sorted || sorted == 2)
 		return (0);
-	if (!valid_address(1, 'l'))
-		return (ft_lstclear(&(heads).head_a), ft_printf("ERROR"), 0);
-	final_rotation(&heads);
-	ft_lstclear(&(heads).head_a);
-	return (0);
+	return (final_rotation(&heads), ft_lstclear(&(heads).head_a), 1);
 }

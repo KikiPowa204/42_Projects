@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 09:17:31 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/20 10:19:29 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/23 08:11:51 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ int	index_list(t_stack *stack_a, t_manager *heads, int start)
 		while (tmp != stack_a)
 		{
 			if (stack_a->num == tmp->num)
-				return (ft_lstclear(&heads->head_a), 0);
+			{
+				valid_address(-1, 's');
+				return (0);
+			}
 			else if (stack_a->num < tmp->num)
 				stack_a->index--;
 			tmp = tmp->next;
@@ -108,8 +111,7 @@ int	stack_manager(t_manager *heads, char **argv, int check)
 	if (!check)
 		return (0);
 	if (checker(heads->head_a, heads))
-		return (ft_lstclear(&(heads)->head_a), 1);
-	//find_optimal()
+		return (ft_lstclear(&(heads)->head_a), 2);
 	unload(heads);
 	if (!sort_seven(heads))
 		return (0);

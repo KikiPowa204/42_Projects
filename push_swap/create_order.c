@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 14:24:38 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/19 15:09:24 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/22 10:14:49 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void	order_stacks(t_manager *heads, int *path)
 		if (path[i] >= 4 && path[i] <= 6)
 			crack_safe(heads, path[i]);
 		if (path[i] == 7)
-			you_spin_me_round(&(heads)->head_a, heads, 'a');
+			rrotate(&(heads)->head_a, heads, 'a');
 		if (path[i] == 8)
-			you_spin_me_round(&(heads)->head_b, heads, 'b');
+			rrotate(&(heads)->head_b, heads, 'b');
 		if (path[i] == 9)
 			rrotate_both(heads);
 		if (path[i] == 10)
@@ -39,11 +39,20 @@ void	order_stacks(t_manager *heads, int *path)
 
 void	unload(t_manager *heads)
 {
+	int	all_size;
+	int	midpoint;
+
+	all_size = heads->size_a;
+	midpoint = all_size / 2;
 	while (heads->size_a > 7)
 	{
 		if (heads->head_a->index == 1)
-			like_a_record_baby(&(heads)->head_a, heads, 'a');
-		else
-			post_station(heads, 'b');
+		{
+			rotate(&(heads)->head_a, heads, 'a');
+			continue ;
+		}
+		post_station(heads, 'b');
+		if (heads->head_b->index < midpoint)
+			rotate(&(heads->head_b), heads, 'b');
 	}
 }

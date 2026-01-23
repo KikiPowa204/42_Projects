@@ -6,12 +6,15 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:37:36 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/20 09:41:50 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/22 10:13:44 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf/ft_printf.h"
-#include "printf/libft/libft.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+# include "printf/ft_printf.h"
+# include "printf/libft/libft.h"
+# include "./bonus/get_next_line.h"
 
 typedef struct s_manager
 {
@@ -25,6 +28,7 @@ typedef struct s_manager
 	int		size_a;
 	int		size_b;
 	int		cost;
+	int		is_split;
 }			t_manager;
 
 int		sort_seven(t_manager *heads);
@@ -39,8 +43,8 @@ int		main(int argc, char **argv);
 int		checker(t_stack *stack, t_manager *heads);
 void	find_ft(t_manager *heads, t_stack *starting, t_stack *stack_b);
 void	cost_to_top(t_stack *node, int size, int i);
-void	you_spin_me_round(t_stack **stack, t_manager *heads, char a_or_b);
-void	like_a_record_baby(t_stack **stack, t_manager *heads, char a_or_b);
+void	rrotate(t_stack **stack, t_manager *heads, char a_or_b);
+void	rotate(t_stack **stack, t_manager *heads, char a_or_b);
 void	freaky_friday(t_stack **head, char a_o_b);
 void	order_stacks(t_manager *heads, int *path);
 void	parent_trap(t_manager *heads);
@@ -58,5 +62,15 @@ void	check_rotation(t_manager *heads, int cost_to_top);
 int		it_is_cheap(t_manager *heads, t_stack *stack_1, t_stack *stack_2);
 void	to_r_or_rr(t_manager *heads, t_stack *head,
 			t_stack *target, char stack);
-void	form_categories(t_stack *b_nodes, t_stack *a_nodes, t_manager *heads);
-void	move_to_position(t_manager *heads, int CTT_A, int CTT_B);
+void	move_to_position(t_manager *heads, int ctt_a, int ctt_b);
+void	purge(char **list, int s_split);
+
+//bonus functions
+int		make_list_b(t_manager *heads, char **argv);
+int		index_list_b(t_stack *stack_a, t_manager *heads, int start);
+void	spin_rev_b(t_stack *stack, t_stack *head);
+int		checker_b(t_stack *stack, t_manager *heads);
+int		valid_address_b(int compare, char s_or_l);
+int		ft_atoi_b(char *nbr);
+
+#endif

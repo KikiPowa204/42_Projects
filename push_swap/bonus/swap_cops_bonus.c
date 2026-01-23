@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_cops.c                                        :+:      :+:    :+:   */
+/*   swap_cops_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 08:39:31 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/21 16:58:38 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/01/22 09:53:37 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	freaky_friday(t_stack **head, char a_o_b)
 {
@@ -18,6 +18,7 @@ void	freaky_friday(t_stack **head, char a_o_b)
 	t_stack	*node_2;
 	t_stack	*last_node;
 
+	a_o_b = 0;
 	node_1 = *head;
 	node_2 = node_1->next;
 	last_node = node_1->prev;
@@ -28,17 +29,12 @@ void	freaky_friday(t_stack **head, char a_o_b)
 	node_2->next = *head;
 	node_1->prev = node_2;
 	*head = node_2;
-	if (a_o_b == 'a')
-		ft_printf("sa\n");
-	if (a_o_b == 'b')
-		ft_printf("sb\n");
 }
 
 void	parent_trap(t_manager *heads)
 {
 	freaky_friday(&(heads)->head_a, 'c');
 	freaky_friday(&(heads)->head_b, 'c');
-	ft_printf("ss\n");
 }
 
 void	pick_path(t_manager *heads, int num)
