@@ -6,11 +6,29 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:35:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/23 09:05:29 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/02 10:35:21 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	no_num(char *arg)
+{
+	int	i;
+
+	i = 0;
+	while (arg[i])
+	{
+		if ((arg[i] < '0' || arg[i] > '9') && ((arg[i] != '-' || arg[i] != '+')
+				&& arg[i] != ' '))
+		{
+			write(2, "Error\n", 6);
+			return (valid_address(-1, 's'), 0);
+		}
+		i++;
+	}
+	return (1);
+}
 
 int	new_argc(char *argv)
 {
@@ -53,13 +71,13 @@ int	handle_data(t_manager *heads, char **list, int how_many)
 	sorted = 1;
 	valid = check_valid(list, how_many);
 	if (valid <= 0)
-		return (ft_printf("Error\n"), 0);
+		return (write(2, "Error\n", 6), 0);
 	if (valid == 1)
 		sorted = stack_manager(heads, list, 0);
 	if (sorted == 2)
 		return (2);
 	if (valid <= 0 || !valid_address(1, 'l'))
-		return (ft_lstclear(&(heads)->head_a), ft_printf("Error\n"), 0);
+		return (ft_lstclear(&(heads)->head_a), write(2, "Error\n", 6), 0);
 	return (1);
 }
 
@@ -70,7 +88,8 @@ int	main(int argc, char **argv)
 	char				**list;
 	static t_manager	heads;
 
-	if ((argc == 2 && !ft_strchr(argv[1], ' ')) || argc == 1)
+	if ((argc == 2 && (!no_num(argv[1]) || !ft_strchr(argv[1], ' ')))
+		|| argc == 1)
 		return (0);
 	if (argc == 2 && ft_strchr(argv[1], ' '))
 	{

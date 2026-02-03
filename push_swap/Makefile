@@ -6,14 +6,14 @@
 #    By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/19 08:06:37 by knajmech          #+#    #+#              #
-#    Updated: 2026/01/22 10:15:50 by knajmech         ###   ########.fr        #
+#    Updated: 2026/02/02 11:18:20 by knajmech         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 NAMEB = checker
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 SRC = 	stack_manager.c\
 		error_handling.c\
 		push_swap.c\
@@ -58,8 +58,8 @@ $(NAME): $(OBJ)
 	@make -C printf
 	$(CC) $(CFLAGS) $(OBJ) $(PRINTF) $(LIBFT) -o $(NAME)
 
-%.o:%.c push_swap.h
-	$(CC) $(CFLAGS) -c $< -o $@
+#%.o:%.c push_swap.h
+#	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ) $(OBJSB) .bonus
@@ -75,4 +75,7 @@ fclean:
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+debug: CFLAGS += -g
+debug: re
+
+.PHONY: all clean fclean re bonus debug
