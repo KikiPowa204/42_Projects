@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:37:36 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/02 11:58:11 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/03 10:29:29 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int		make_list_b(t_manager *heads, char **argv);
 int		index_list_b(t_stack *stack_a, t_manager *heads, int start);
 void	spin_rev_b(t_stack *stack, t_stack *head);
 int		checker_b(t_stack *stack, t_manager *heads);
-int		valid_address_b(int compare, char s_or_l);
+int		valid_address(int compare, char s_or_l);
 int		ft_atoi_b(char *nbr);
 void	execute_rule(t_manager *heads, int rule);
 int		assign_val(char *instruction, int move);

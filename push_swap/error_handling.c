@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:42:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/19 16:49:04 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/03 08:45:49 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,19 @@ int	check_length(char **list, int amount)
 
 int	check_valid(char **list, int amount)
 {
-	int	index;
-	int	num;
-	int	valid;
+	int		index;
+	long	num;
 
 	index = 0;
-	valid = 1;
+	if (!valid_address(1, 'l'))
+		return (-1);
 	valid_address(check_length(list, amount), 's');
 	while (index < amount)
 	{
 		num = ft_atoi(list[index]);
+		if ((num > INT_MAX || num < INT_MIN) || !valid_address(1, 'l'))
+			return (-1);
 		index++;
 	}
-	if (!valid_address(valid, 'l'))
-		return (0);
 	return (1);
 }

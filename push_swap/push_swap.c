@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:35:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/02 10:35:21 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/03 08:43:06 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	new_argc(char *argv)
 			while (argv[i] && argv[i] != ' ')
 				i++;
 		}
+		if (spaces == 0)
+			return (valid_address(-1, 's') -1);
 	}
 	return (spaces);
 }

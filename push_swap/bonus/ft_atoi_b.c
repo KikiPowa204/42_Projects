@@ -6,34 +6,30 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 12:50:45 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/22 09:53:01 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/03 10:28:52 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	atoi_valid_b(long new, char *nptr)
+int	atoi_valid_b(char *nptr)
 {
 	int	i;
 	int	len;
-	int	valid;
 
 	i = 0;
-	valid = 1;
 	len = ft_strlen(nptr);
-	if (new > INT_MAX || new < INT_MIN)
-		valid = -1;
+	if (!len)
+		return (-1);
 	if (nptr[i] == '-' || nptr[i] == '+')
 		i++;
 	while (i < len)
 	{
 		if (nptr[i] > '9' || nptr[i] < '0')
-			valid = -1;
+			return (-1);
 		i++;
 	}
-	if (valid == -1)
-		valid_address_b(valid, 's');
-	return (valid);
+	return (1);
 }
 
 int	ft_atoi_b(char *nptr)
@@ -45,8 +41,8 @@ int	ft_atoi_b(char *nptr)
 	neg_switch = 0;
 	new = 0;
 	i = 0;
-	if (atoi_valid_b(new, nptr) == -1)
-		valid_address_b(-1, 's');
+	if (atoi_valid_b(nptr) == -1)
+		return (valid_address(-1, 's'), -1);
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{
 		if (nptr[i] == '-')

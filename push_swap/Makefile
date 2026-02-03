@@ -6,7 +6,7 @@
 #    By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/19 08:06:37 by knajmech          #+#    #+#              #
-#    Updated: 2026/02/02 11:18:20 by knajmech         ###   ########.fr        #
+#    Updated: 2026/02/03 10:25:38 by knajmech         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,9 @@ SRCB =	./bonus/checker.c\
 		./bonus/rotation_nation_bonus.c\
 		./bonus/swap_cops_bonus.c\
 		./bonus/push_town_bonus.c\
-		clear_mem.c\
+		./bonus/rule_manager.c\
+		error_handling.c\
+		clear_mem.c
 
 OBJ = $(SRC:.c=.o)
 OBJSB = $(SRCB:.c=.o)
@@ -76,6 +78,6 @@ fclean:
 re: fclean all
 
 debug: CFLAGS += -g
-debug: re
+debug: re bonus
 
 .PHONY: all clean fclean re bonus debug
