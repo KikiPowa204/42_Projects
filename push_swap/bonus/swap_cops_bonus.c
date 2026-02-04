@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 08:39:31 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/03 14:54:22 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/04 15:13:21 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,26 @@
 
 void	freaky_friday_b(t_stack **head)
 {
-	t_stack	*n1;
-	t_stack	*n2;
+	t_stack	*old_head;
+	t_stack	*new_head;
+	t_stack	*tail;
 
 	if (!head || !(*head) || (*head)->next == *head)
 		return ;
-	n1 = *head;
-	n2 = n1->next;
-	n1->prev->next = n2;
-	n2->next->prev = n1;
-	n1->next = n2->next;
-	n2->prev = n1->prev;
-	n2->next = n1;
-	n1->prev = n2;
-	*head = n2;
+	old_head = *head;
+	new_head = old_head->next;
+	tail = old_head->prev;
+
+	tail->next = new_head;
+	new_head->next->prev = old_head;
+
+	new_head->prev = tail;
+	old_head->next->prev = old_head;
+	old_head->next = new_head->next;
+	new_head->next = old_head;
+	old_head->prev = new_head;
+
+	*head = new_head;
 }
 
 void	parent_trap(t_manager *heads)

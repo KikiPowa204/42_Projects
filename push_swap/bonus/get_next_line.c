@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:44:25 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/22 09:45:03 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/04 15:15:46 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,4 +149,19 @@ char	*get_next_line(int fd)
 // 		free(result);
 // 	}
 // 	//close(fd);
+// }
+
+
+// char	*get_next_line(int fd)
+// {
+// 	static int	times = 2;
+
+// 	fd = 0;
+// 	if (times == 2)
+// 		return (times--, "sa\n");
+// 	else if (times == 1)
+// 		return (times--, "rra\n");
+// 	else if (times == 0)
+// 		return (NULL);
+// 	return (NULL);
 // }

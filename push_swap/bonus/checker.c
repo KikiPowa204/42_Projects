@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 10:03:39 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/04 12:15:43 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/04 14:09:25 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	handle_list(t_manager *heads, char ***list, char **argv, int amount)
 	}
 	else
 	{
-		how_many = amount - 2;
+		how_many = amount - 1;
 		*list = argv + 1;
 	}
 	if (check_valid(*list, how_many) == -1)

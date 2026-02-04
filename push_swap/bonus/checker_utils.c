@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 12:20:54 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/03 15:56:07 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/04 15:16:20 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,6 @@ int	checker_b(t_stack *stack, t_manager *heads)
 	ft_printf("%d, %d\n", heads->head_a->index, heads->head_a->next->index);
 	return (1);
 }
-
-// int	valid_address(int compare, char s_or_l)
-// {
-// 	static int	check;
-
-// 	if (s_or_l == 's' && compare < 0)
-// 		check = -1;
-// 	else if (s_or_l == 'l' && check == -1)
-// 		return (0);
-// 	return (1);
-// }
 
 void	spin_rev_b(t_stack *stack, t_stack *head)
 {
@@ -106,3 +95,13 @@ int	make_list_b(t_manager *heads, char **argv)
 	heads->size_a = ft_lstsize(heads->head_a);
 	return (1);
 }
+// int	valid_address(int compare, char s_or_l)
+// {
+// 	static int	check;
+
+// 	if (s_or_l == 's' && compare < 0)
+// 		check = -1;
+// 	else if (s_or_l == 'l' && check == -1)
+// 		return (0);
+// 	return (1);
+// }
