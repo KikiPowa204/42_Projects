@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_handling_b.c                                 :+:      :+:    :+:   */
+/*   rule_manager.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 11:45:15 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/02 11:52:04 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/03 14:55:01 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	execute_rule(t_manager *heads, int rule)
 	if (rule >= 4 && rule <= 6)
 		crack_safe(heads, rule);
 	if (rule == 7)
-		rrotate(&(heads)->head_a, heads, 'A');
+		rrotate(&(heads)->head_a, heads, 'a');
 	if (rule == 8)
-		rrotate(&(heads)->head_b, heads, 'B');
+		rrotate(&(heads)->head_b, heads, 'b');
 	if (rule == 9)
 		rrotate_both(heads);
 	if (rule == 10)
