@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:42:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/03 08:45:49 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/05 07:42:41 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,34 @@ int	check_length(char **list, int amount)
 	return (1);
 }
 
+int	check_input(char **list, int amount)
+{
+	int	i;
+	int	j;
+	int	has_num;
+
+	i = 0;
+	while (i < amount)
+	{
+		has_num = 0;
+		j = 0;
+		if (list[i][0] == '-')
+			j++;
+		while(list[i][j])
+		{
+			if (list[i][j] <= '9' && list[i][j] >= '0')
+				has_num = 1;
+			if (list[i][j] < '0' || list[i][j] > '9')
+				return (-1);
+			j++;
+		}
+		if (!has_num)
+			return (-1);
+		i++;
+	}
+	return (1);
+}
+
 int	check_valid(char **list, int amount)
 {
 	int		index;
@@ -44,8 +72,9 @@ int	check_valid(char **list, int amount)
 
 	index = 0;
 	if (!valid_address(1, 'l'))
-		return (-1);
-	valid_address(check_length(list, amount), 's');
+		return (0);
+	if (check_length(list, amount) == -1 || check_input(list, amount) == -1)
+		return (valid_address(-1, 's'), 0);
 	while (index < amount)
 	{
 		num = ft_atoi(list[index]);

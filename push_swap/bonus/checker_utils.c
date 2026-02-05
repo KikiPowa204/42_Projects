@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 12:20:54 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/04 15:16:20 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/05 07:36:43 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@ int	checker_b(t_stack *stack, t_manager *heads)
 
 	prev_index = stack->index;
 	stack = stack->next;
-	ft_printf("%d, %d\n", heads->head_a->index, heads->head_a->next->index);
-	ft_printf("%d, %d\n", stack->index, stack->next->index);
-	ft_printf("%d\n", heads->size_a);
 	while (stack != heads->head_a)
 	{
 		if (stack->index < prev_index)
@@ -28,7 +25,6 @@ int	checker_b(t_stack *stack, t_manager *heads)
 		prev_index = stack->index;
 		stack = stack->next;
 	}
-	ft_printf("%d, %d\n", heads->head_a->index, heads->head_a->next->index);
 	return (1);
 }
 
@@ -78,8 +74,8 @@ int	make_list_b(t_manager *heads, char **argv)
 
 	i = 1;
 	stack_a = ft_lstnew(ft_atoi_b(argv[0]));
-	if (!stack_a)
-		return (0);
+	if (!stack_a || !check_valid(argv, heads->size_a))
+		return (free(stack_a), -1);
 	stack_a->next = stack_a;
 	heads->head_a = stack_a;
 	while ((argv[i]) != 0)

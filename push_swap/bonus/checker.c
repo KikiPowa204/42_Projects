@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 10:03:39 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/04 14:09:25 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/05 07:34:50 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	check_mate(t_manager *heads, char **argv)
 	int		command;
 	char	*instruction;
 
-	if (!(make_list_b(heads, argv)))
+	if ((make_list_b(heads, argv)) <= 0)
 		return (-1);
 	spin_rev_b(heads->head_a, heads->head_a);
 	if (!(index_list_b(heads->head_a, heads, 0)))
@@ -84,9 +84,9 @@ int	handle_list(t_manager *heads, char ***list, char **argv, int amount)
 {
 	int	how_many;
 
-	if ((amount == 2 && (!no_num(argv[1]) || !ft_strchr(argv[1], ' ')))
+	if ((amount == 2 && (!no_num(argv[1])))
 		|| amount == 1)
-		return (0);
+		return (-1);
 	if ((amount == 2 && ft_strchr(argv[1], ' ')))
 	{
 		heads->is_split = 1;
@@ -97,11 +97,11 @@ int	handle_list(t_manager *heads, char ***list, char **argv, int amount)
 	}
 	else
 	{
-		how_many = amount - 1;
+		how_many = amount - 2;
 		*list = argv + 1;
 	}
 	if (check_valid(*list, how_many) == -1)
-		return (write(2, "Error\n", 6), 0);
+		return (purge(*list, heads->is_split), write(2, "Error\n", 6), 0);
 	return (how_many);
 }
 
@@ -112,8 +112,10 @@ int	main(int argc, char **argv)
 	int					how_many;
 	int					result;
 
+	if ((argc > 1 && !no_num(argv[1])))
+		return (write(2, "Error\n", 6), 0);
 	how_many = handle_list(&heads, &list, argv, argc);
-	if (how_many <= 0)
+	if (how_many < 0)
 		return (purge(list, heads.is_split), 0);
 	result = check_mate(&heads, list);
 	purge(list, heads.is_split);
