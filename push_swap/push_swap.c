@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:35:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/05 10:33:57 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/05 10:34:28 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,7 @@ int	main(int argc, char **argv)
 	char				**list;
 	static t_manager	heads;
 
-	if ((argc == 2 && (!no_num(argv[1]) || !ft_strchr(argv[1], ' ')))
-		|| argc == 1)
+	if ((argc == 2 && !ft_strchr(argv[1], ' '))	|| argc == 1)
 		return (0);
 	if (argc == 2 && ft_strchr(argv[1], ' '))
 	{
