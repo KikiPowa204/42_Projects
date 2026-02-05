@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:42:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/05 09:00:00 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/05 11:02:06 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	check_input(char **list, int amount)
 			j++;
 		}
 		if (!has_num)
-			return (ft_printf("culprit\n"), -1);
+			return (-1);
 		i++;
 	}
 	return (1);
