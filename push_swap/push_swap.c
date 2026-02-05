@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:35:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/04 15:39:19 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/05 10:33:57 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ int	no_num(char *arg)
 	int	i;
 
 	i = 0;
+	if ((arg[0] != '-' || arg[0] != '+') && (arg[1] != 0))
+		i++;
 	while (arg[i])
 	{
-		if ((arg[i] < '0' || arg[i] > '9') && ((arg[i] != '-' || arg[i] != '+')
-				&& arg[i] != ' '))
+		if ((arg[i] < '0' || arg[i] > '9') && arg[i] != ' ')
 		{
 			write(2, "Error\n", 6);
 			return (valid_address(-1, 's'), 0);
@@ -48,7 +49,7 @@ int	new_argc(char *argv)
 				i++;
 		}
 		if (spaces == 0)
-			return (valid_address(-1, 's') -1);
+			return (valid_address(-1, 's'), -1);
 	}
 	return (spaces);
 }

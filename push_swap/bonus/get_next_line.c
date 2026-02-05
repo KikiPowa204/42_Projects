@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:44:25 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/04 15:15:46 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/05 07:45:36 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,8 +150,6 @@ char	*get_next_line(int fd)
 // 	}
 // 	//close(fd);
 // }
-
-
 // char	*get_next_line(int fd)
 // {
 // 	static int	times = 2;

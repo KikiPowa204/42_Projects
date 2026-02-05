@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 10:03:39 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/05 07:34:50 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/05 09:33:42 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	new_argc(char *argv)
 				i++;
 		}
 		if (spaces == 0)
-			return (valid_address(-1, 's') -1);
+			return (valid_address(-1, 's'), -1);
 	}
 	return (spaces);
 }
@@ -69,6 +69,7 @@ int	check_mate(t_manager *heads, char **argv)
 		instruction = get_next_line(0);
 		if (!instruction)
 			break ;
+		//ft_printf("%d, %d, %d\n", heads->head_a->index, heads->head_a->next->index, heads->head_a->next->next->index);
 		command = assign_val(instruction, 0);
 		if (command == 0)
 			return (close(0), free(instruction), -1);

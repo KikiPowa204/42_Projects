@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:42:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/05 07:42:41 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/05 09:00:00 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	check_input(char **list, int amount)
 		j = 0;
 		if (list[i][0] == '-')
 			j++;
-		while(list[i][j])
+		while (list[i][j])
 		{
 			if (list[i][j] <= '9' && list[i][j] >= '0')
 				has_num = 1;
@@ -59,7 +59,7 @@ int	check_input(char **list, int amount)
 			j++;
 		}
 		if (!has_num)
-			return (-1);
+			return (ft_printf("culprit\n"), -1);
 		i++;
 	}
 	return (1);
