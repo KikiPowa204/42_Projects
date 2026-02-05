@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 10:03:39 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/05 09:33:42 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/05 10:57:34 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ int	check_mate(t_manager *heads, char **argv)
 		instruction = get_next_line(0);
 		if (!instruction)
 			break ;
-		//ft_printf("%d, %d, %d\n", heads->head_a->index, heads->head_a->next->index, heads->head_a->next->next->index);
 		command = assign_val(instruction, 0);
 		if (command == 0)
 			return (close(0), free(instruction), -1);

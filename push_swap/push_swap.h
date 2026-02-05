@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:37:36 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/03 15:51:41 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/05 10:44:02 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,6 @@ int		valid_address(int compare, char s_or_l);
 int		ft_atoi_b(char *nbr);
 void	execute_rule(t_manager *heads, int rule);
 int		assign_val(char *instruction, int move);
+void	pick_path_b(t_manager *heads, int num);
 
 #endif

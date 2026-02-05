@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 08:59:26 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/05 09:37:14 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/05 10:57:25 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,11 @@ void	rotate(t_stack **stack, t_manager *heads, char a_or_b)
 
 void	rrotate(t_stack **stack, t_manager *heads, char a_or_b)
 {
-	ft_printf("%d, %d, %d\n", heads->head_a->index, heads->head_a->next->index, heads->head_a->next->next->index);
 	*stack = (*stack)->prev;
 	if (a_or_b == 'b')
 		heads->head_b = *stack;
 	else if (a_or_b == 'a')
 		heads->head_a = *stack;
-	ft_printf("%d, %d, %d\n", heads->head_a->index, heads->head_a->next->index, heads->head_a->next->next->index);
 }
 
 void	rrotate_both(t_manager *heads)

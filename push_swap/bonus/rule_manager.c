@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 11:45:15 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/03 14:55:01 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/05 10:51:13 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	execute_rule(t_manager *heads, int rule)
 	if (!rule)
 		return ;
 	if (rule <= 3 && rule >= 1)
-		pick_path(heads, rule);
+		pick_path_b(heads, rule);
 	if (rule >= 4 && rule <= 6)
 		crack_safe(heads, rule);
 	if (rule == 7)
