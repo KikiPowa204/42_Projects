@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:42:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/05 11:02:06 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/05 12:19:34 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	check_valid(char **list, int amount)
 	if (!valid_address(1, 'l'))
 		return (0);
 	if (check_length(list, amount) == -1 || check_input(list, amount) == -1)
-		return (valid_address(-1, 's'), 0);
+		return (valid_address(-1, 's'), -1);
 	while (index < amount)
 	{
 		num = ft_atoi(list[index]);

@@ -6,30 +6,11 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:35:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/05 10:58:26 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/06 07:36:00 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	no_num(char *arg)
-{
-	int	i;
-
-	i = 0;
-	if ((arg[0] != '-' || arg[0] != '+') && (arg[1] != 0))
-		i++;
-	while (arg[i])
-	{
-		if ((arg[i] < '0' || arg[i] > '9') && arg[i] != ' ')
-		{
-			write(2, "Error\n", 6);
-			return (valid_address(-1, 's'), 0);
-		}
-		i++;
-	}
-	return (1);
-}
 
 int	new_argc(char *argv)
 {
@@ -79,9 +60,34 @@ int	handle_data(t_manager *heads, char **list, int how_many)
 		sorted = stack_manager(heads, list, 0);
 	if (sorted == 2)
 		return (2);
-	if (valid <= 0 || !valid_address(1, 'l'))
+	if (sorted == 0 || valid <= 0 || !valid_address(1, 'l'))
 		return (ft_lstclear(&(heads)->head_a), write(2, "Error\n", 6), 0);
 	return (1);
+}
+
+void	big_num(char **argv, int amount)
+{
+	int	i;
+
+	if (amount == 1)
+		return ;
+	i = 0;
+	if (argv[1][0] == '-')
+		i++;
+	if (ft_strlen(argv[1]) > 10 || argv[1][0] == 0)
+	{
+		write(2, "Error\n", 6);
+		return ;
+	}
+	while (argv[1][i])
+	{
+		if (argv[1][i] > '9' || argv[1][i] < '0')
+		{
+			write(2, "Error\n", 6);
+			return ;
+		}
+		i++;
+	}
 }
 
 int	main(int argc, char **argv)
@@ -92,11 +98,13 @@ int	main(int argc, char **argv)
 	static t_manager	heads;
 
 	if ((argc == 2 && !ft_strchr(argv[1], ' ')) || argc == 1)
-		return (0);
+		return (big_num(argv, argc), 0);
 	if (argc == 2 && ft_strchr(argv[1], ' '))
 	{
-		heads.is_split = 1;
 		list = ft_split(argv[1], ' ');
+		if (!list)
+			return (0);
+		heads.is_split = 1;
 		how_many = new_argc(argv[1]);
 	}
 	else

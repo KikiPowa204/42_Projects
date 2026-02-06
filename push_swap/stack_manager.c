@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 09:17:31 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/23 08:11:51 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/05 11:21:42 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	find_ft(t_manager *heads, t_stack *starting, t_stack *stack_b)
 int	stack_manager(t_manager *heads, char **argv, int check)
 {
 	if (!(make_list(heads, argv)))
-		return (-1);
+		return (valid_address(-1, 's'), 0);
 	heads->size_a = ft_lstsize(heads->head_a);
 	spin_rev(heads->head_a, heads->head_a);
 	check = index_list(heads->head_a, heads, 0);
