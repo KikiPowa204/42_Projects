@@ -6,33 +6,20 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 10:03:39 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/06 08:18:11 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/10 14:52:23 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	new_argc(char *argv)
+int	new_argc(char **list)
 {
 	int	i;
-	int	spaces;
 
 	i = 0;
-	spaces = 0;
-	while (argv[i])
-	{
-		while (argv[i] && argv[i] == ' ')
-			i++;
-		if (argv[i])
-		{
-			spaces++;
-			while (argv[i] && argv[i] != ' ')
-				i++;
-		}
-		if (spaces == 0)
-			return (valid_address(-1, 's'), -1);
-	}
-	return (spaces);
+	while (list[i])
+		i++;
+	return (i);
 }
 
 int	check_mate(t_manager *heads, char **argv)
@@ -62,75 +49,78 @@ int	check_mate(t_manager *heads, char **argv)
 	return (close(0), 0);
 }
 
-int	handle_list(t_manager *heads, char ***list, char **argv, int amount)
-{
-	int	how_many;
+// int	handle_list(t_manager *heads, char ***list, char **argv, int amount)
+// {
+// 	int	how_many;
 
-	if (amount == 1)
-		return (-1);
-	else if (amount == 2 && ((ft_strlen(argv[1]) > 10
-				&& !ft_strchr(argv[1], ' ')) || argv[1][0] == 0))
+// 	if (amount == 1)
+// 		return (-1);
+// 	else if ((amount == 2 && ft_strchr(argv[1], ' ')))
+// 	{
+// 		*list = ft_split(argv[1], ' ');
+// 		if (!*list)
+// 			return (-1);
+// 		heads->is_split = 1;
+// 		how_many = new_argc(argv[1]);
+// 	}
+// 	else
+// 	{
+// 		how_many = amount - 2;
+// 		*list = argv + 1;
+// 	}
+// 	if (how_many == -1 || list == 0)
+// 		return (write(2, "Error\n", 6), -1);
+// 	if (check_valid(*list, how_many) == -1)
+// 		return (write(2, "Error\n", 6), 0);
+// 	return (how_many);
+// }
+
+int	handle_list(t_manager *heads, char **list, int how_many)
+{
+	int	valid;
+	int	sorted;
+
+	valid = check_valid(list, how_many);
+	if (valid != -1 && how_many == 1)
+		sorted = 1;
+	if (valid == -1)
+		sorted = -1;
+	if (valid == 1)
+		sorted = check_mate(heads, list);
+	purge(list, heads->is_split);
+	if (sorted == -1 || valid < 0 || !valid_address(1, 'l'))
 		return (write(2, "Error\n", 6), -1);
-	else if ((amount == 2 && ft_strchr(argv[1], ' ')))
-	{
-		*list = ft_split(argv[1], ' ');
-		if (!*list)
-			return (-1);
-		heads->is_split = 1;
-		how_many = new_argc(argv[1]);
-	}
-	else
-	{
-		how_many = amount - 2;
-		*list = argv + 1;
-	}
-	if (how_many == -1 || list == 0)
-		return (write(2, "Error\n", 6), -1);
-	if (check_valid(*list, how_many) == -1)
-		return (write(2, "Error\n", 6), 0);
-	return (how_many);
+	if (sorted == 0)
+		return (ft_printf("KO\n"), 0);
+	if (sorted == 1)
+		return (ft_printf("OK\n"), 1);
+	return (1);
 }
 
 int	main(int argc, char **argv)
 {
 	static t_manager	heads;
-	char				**list;
 	int					how_many;
-	int					result;
+	char				**list;
 
-	how_many = handle_list(&heads, &list, argv, argc);
-	if (!valid_address(1, 'l'))
-		how_many = -1;
-	if (how_many < 0)
-		return (purge(list, heads.is_split), 0);
-	result = check_mate(&heads, list);
-	purge(list, heads.is_split);
-	if (result == 1)
-		return (ft_lstclear(&(heads.head_a)), ft_printf("OK\n"), 1);
-	else if (result < 0)
-		return (ft_lstclear(&(heads.head_a)), write(2, "Error\n", 6), 0);
-	return (ft_lstclear(&(heads.head_a)), ft_printf("KO\n"), 0);
+	if (argc == 1)
+		return (0);
+	if (argc == 2 && ft_strchr(argv[1], ' '))
+	{
+		list = ft_split(argv[1], ' ');
+		if (!list)
+			return (0);
+		heads.is_split = 1;
+		how_many = new_argc(list);
+	}
+	else
+	{
+		how_many = argc - 1;
+		list = argv + 1;
+	}
+	handle_list(&heads, list, how_many);
+	if (heads.size_a)
+		ft_lstclear(&(heads.head_a));
+	if (heads.size_b)
+		ft_lstclear(&(heads.head_b));
 }
-
-// void	big_num(char **argv, int amount)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	if (argv[1][0] == '-')
-// 		i++;
-// 	if (ft_strlen(argv[1]) > 10 || argv[1][0] == 0)
-// 	{
-// 		write(2, "Error\n", 6);
-// 		return ;
-// 	}
-// 	while (argv[1][i])
-// 	{
-// 		if (argv[1][i] > '9' || argv[1][i] < '0')
-// 		{
-// 			write(2, "Error\n", 6);
-// 			return ;
-// 		}
-// 		i++;
-// 	}
-// }

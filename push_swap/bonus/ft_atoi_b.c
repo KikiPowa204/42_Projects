@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 12:50:45 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/03 10:28:52 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/10 12:09:09 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ int	atoi_valid_b(char *nptr)
 
 	i = 0;
 	len = ft_strlen(nptr);
-	if (!len)
-		return (-1);
 	if (nptr[i] == '-' || nptr[i] == '+')
 		i++;
 	while (i < len)
@@ -32,7 +30,7 @@ int	atoi_valid_b(char *nptr)
 	return (1);
 }
 
-int	ft_atoi_b(char *nptr)
+long	ft_atoi_b(char *nptr)
 {
 	long int	new;
 	int			i;

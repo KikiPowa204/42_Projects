@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 09:47:34 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/22 10:14:49 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/09 12:46:02 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,8 @@ void	move_to_position(t_manager *heads, int ctt_a, int ctt_b)
 
 void	switcheroo(t_manager *heads)
 {
-	int	i;
-
 	if (heads->head_a->next == heads->head_a || !(heads->size_b))
 		return ;
-	i = 0;
 	while (heads->target_in_a != heads->head_a)
 	{
 		to_r_or_rr(heads, heads->head_a, heads->target_in_a, 'a');

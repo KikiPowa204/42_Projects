@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:42:58 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/05 12:19:34 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/10 14:16:35 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,12 @@ int	check_length(char **list, int amount)
 	i = 0;
 	while (i < amount)
 	{
-		if (ft_strlen(list[i]) > 10 && list[i][0] != '-')
+		if (list[i][0] == '-')
+		{
+			if (ft_strlen(&(list[i][1])) > 12)
+				return (-1);
+		}
+		else if (ft_strlen(list[i]) > 12)
 			return (-1);
 		i++;
 	}
@@ -71,8 +76,6 @@ int	check_valid(char **list, int amount)
 	long	num;
 
 	index = 0;
-	if (!valid_address(1, 'l'))
-		return (0);
 	if (check_length(list, amount) == -1 || check_input(list, amount) == -1)
 		return (valid_address(-1, 's'), -1);
 	while (index < amount)

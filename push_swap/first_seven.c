@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 10:13:39 by knajmech          #+#    #+#             */
-/*   Updated: 2026/01/19 16:45:59 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/09 16:35:29 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	sort_seven(t_manager *heads)
 	size = ft_lstsize(heads->head_a);
 	nums = make_array(heads->head_a, size);
 	if (!nums)
-		return (ft_lstclear(&(heads->head_a)), 0);
+		return (0);
 	ft_memset(heads->inst, 0, (20 * sizeof(int)));
 	ft_memset(heads->win_inst, 0, (20 * sizeof(int)));
 	best_timeline(nums, 0, &min_moves, heads);
