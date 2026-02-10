@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 09:17:31 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/10 10:23:08 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/10 15:04:57 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ int	stack_manager(t_manager *heads, char **argv, int check)
 	spin_rev(heads->head_a, heads->head_a);
 	check = index_list(heads->head_a, heads, 0);
 	if (!check)
-		return (0);
+		return (-1);
 	if (checker(heads->head_a, heads))
 		return (2);
 	unload(heads);
