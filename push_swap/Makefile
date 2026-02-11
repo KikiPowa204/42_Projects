@@ -6,7 +6,7 @@
 #    By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/19 08:06:37 by knajmech          #+#    #+#              #
-#    Updated: 2026/02/03 10:25:38 by knajmech         ###   ########.fr        #
+#    Updated: 2026/02/11 07:09:00 by knajmech         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,9 +60,6 @@ $(NAME): $(OBJ)
 	@make -C printf
 	$(CC) $(CFLAGS) $(OBJ) $(PRINTF) $(LIBFT) -o $(NAME)
 
-#%.o:%.c push_swap.h
-#	$(CC) $(CFLAGS) -c $< -o $@
-
 clean:
 	rm -f $(OBJ) $(OBJSB) .bonus
 	@make -C printf/libft clean
@@ -81,3 +78,6 @@ debug: CFLAGS += -g
 debug: re bonus
 
 .PHONY: all clean fclean re bonus debug
+
+#%.o:%.c push_swap.h
+#	$(CC) $(CFLAGS) -c $< -o $@
