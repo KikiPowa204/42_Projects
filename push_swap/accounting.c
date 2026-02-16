@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:55:17 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/16 07:19:45 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/16 09:18:48 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,6 @@ int	it_is_cheap(t_manager *heads, t_stack *stack_1, t_stack *stack_2)
 		ctt_b = stack_2->cost_to_top;
 	if (!(stack_1->cost_to_top - stack_2->cost_to_top) && heads->cost > ctt_a)
 		return (heads->cost = stack_1->cost_to_top, 2);
-	if (heads->cost > (ctt_a + ctt_b))
-		return (heads->cost = ctt_a + ctt_b, 1);
 	if (ctt_a > ctt_b)
 		compare = ctt_b;
 	else if (ctt_b > ctt_a)
@@ -64,6 +62,8 @@ int	it_is_cheap(t_manager *heads, t_stack *stack_1, t_stack *stack_2)
 			|| (stack_1->cost_to_top < 0 && stack_2->cost_to_top < 0))
 		&& ((ctt_a + ctt_b) - compare) < heads->cost)
 		return (heads->cost = ((ctt_a + ctt_b) - compare), 1);
+	if (heads->cost > (ctt_a + ctt_b))
+		return (heads->cost = ctt_a + ctt_b, 1);
 	return (0);
 }
 
