@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 09:17:31 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/10 15:04:57 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/16 09:29:33 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,8 @@ void	find_ft(t_manager *heads, t_stack *starting, t_stack *stack_b)
 	{
 		if (starting->index > stack_b->index)
 		{
-			if (it_is_cheap(heads, starting, stack_b))
+			if (it_is_cheap(heads, starting->cost_to_top,
+					stack_b->cost_to_top, 0))
 			{
 				heads->target_in_b = stack_b;
 				heads->target_in_a = starting;
@@ -95,7 +96,8 @@ void	find_ft(t_manager *heads, t_stack *starting, t_stack *stack_b)
 		start++;
 	}
 	if (start == heads->size_a
-		&& it_is_cheap(heads, heads->first_pos, stack_b))
+		&& it_is_cheap(heads, heads->first_pos->cost_to_top,
+			stack_b->cost_to_top, 0))
 	{
 		heads->target_in_a = starting;
 		heads->target_in_b = stack_b;

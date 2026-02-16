@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 08:37:36 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/10 12:06:03 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/16 09:25:53 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	post_station(t_manager *heads, char instruction);
 void	calculator(t_manager *heads);
 void	switcheroo(t_manager *heads);
 void	check_rotation(t_manager *heads, int cost_to_top);
-int		it_is_cheap(t_manager *heads, t_stack *stack_1, t_stack *stack_2);
+int		it_is_cheap(t_manager *heads, int ctt_oa, int ctt_ob, int compare);
 void	to_r_or_rr(t_manager *heads, t_stack *head,
 			t_stack *target, char stack);
 void	move_to_position(t_manager *heads, int ctt_a, int ctt_b);

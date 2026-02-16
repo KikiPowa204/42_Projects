@@ -6,7 +6,7 @@
 /*   By: knajmech <knajmech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:55:17 by knajmech          #+#    #+#             */
-/*   Updated: 2026/02/16 09:18:48 by knajmech         ###   ########.fr       */
+/*   Updated: 2026/02/16 09:43:50 by knajmech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,28 +38,26 @@ void	cost_to_top(t_stack *node, int size, int i)
 	}
 }
 
-int	it_is_cheap(t_manager *heads, t_stack *stack_1, t_stack *stack_2)
+int	it_is_cheap(t_manager *heads, int ctt_oa, int ctt_ob, int compare)
 {
 	int	ctt_a;
 	int	ctt_b;
-	int	compare;
 
-	if (stack_1->cost_to_top < 0)
-		ctt_a = stack_1->cost_to_top * -1;
+	if (ctt_oa < 0)
+		ctt_a = ctt_oa * -1;
 	else
-		ctt_a = stack_1->cost_to_top;
-	if (stack_2->cost_to_top < 0)
-		ctt_b = stack_2->cost_to_top * -1;
+		ctt_a = ctt_oa;
+	if (ctt_ob < 0)
+		ctt_b = ctt_ob * -1;
 	else
-		ctt_b = stack_2->cost_to_top;
-	if (!(stack_1->cost_to_top - stack_2->cost_to_top) && heads->cost > ctt_a)
-		return (heads->cost = stack_1->cost_to_top, 2);
+		ctt_b = ctt_ob;
+	if (!(ctt_oa - ctt_ob) && heads->cost > ctt_a)
+		return (heads->cost = ctt_a, 2);
 	if (ctt_a > ctt_b)
 		compare = ctt_b;
 	else if (ctt_b > ctt_a)
 		compare = ctt_a;
-	if (((stack_1->cost_to_top > 0 && stack_2->cost_to_top > 0)
-			|| (stack_1->cost_to_top < 0 && stack_2->cost_to_top < 0))
+	if (((ctt_oa > 0 && ctt_ob > 0) || (ctt_oa < 0 && ctt_ob < 0))
 		&& ((ctt_a + ctt_b) - compare) < heads->cost)
 		return (heads->cost = ((ctt_a + ctt_b) - compare), 1);
 	if (heads->cost > (ctt_a + ctt_b))
